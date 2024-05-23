@@ -9,30 +9,49 @@ export default StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: AppColors.white,
   },
-  topTitleText: {
-    fontSize: width(4),
-    color: AppColors.white,
-    fontWeight: 'bold',
-    marginTop: height(1),
+  coverImageStyle: {
+    width: width(90),
+    height: height(20),
+    borderRadius: width(3),
   },
-  totalAmountView: {
-    width: width(40),
+  profileImageStyle: {
+    width: width(24),
+    height: width(24),
+    borderRadius: width(20),
+    position: 'absolute',
+    bottom: -height(2),
+    left: width(4),
+  },
+  infoView: {
+    width: width(80),
+    height: height(6),
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginBottom: height(2),
-  },
-  totalText: {
-    fontSize: width(4),
-    color: AppColors.grey,
-    fontWeight: 'bold',
-  },
-  totalPriceText: {
-    fontSize: width(4),
-    color: AppColors.white,
-    fontWeight: 'bold',
-  },
-  bottomContainer: {
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: height(2),
+    marginTop: height(2),
+  },
+  UserNameView: {
+    width: width(50),
+  },
+  nameStyle: {
+    fontSize: width(3.6),
+    color: AppColors.black,
+    fontWeight: 'bold',
+  },
+  emailStyle: {
+    fontSize: width(3.6),
+    color: AppColors.grey,
+  },
+  editIconViewStyle: {
+    alignSelf: 'flex-end',
+    marginTop: height(1.5),
+  },
+  editButtonStyle: {
+    width: width(20),
+    borderRadius: width(2),
+    paddingVertical: height(0.4),
+  },
+  editButtonText: {
+    fontSize: width(3),
   },
 });

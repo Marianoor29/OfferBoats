@@ -5,10 +5,11 @@ import {
   Button,
   GalleryCard,
   Header,
+  LargeText,
   ScreenWrapper,
 } from '../../../components';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Image } from 'react-native';
+import Octicons from 'react-native-vector-icons/Octicons';
 import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
 import { logo, user } from '../../../assets/images';
@@ -25,54 +26,35 @@ const Profile = ({ navigation }: any) => {
       barStyle="light-content"
       headerUnScrollable={() => (
         <Header
-          source={logo}
-          icon2={
-            <AntDesign name="bells" size={width(6)} color={AppColors.white} />
-          }
-        />
+        source={logo}
+        icon1={
+          <AntDesign name="search1" size={width(5)} color={AppColors.yellow} />
+        }
+        icon2={
+          <Octicons name="bell-fill" size={width(5)} color={AppColors.yellow} />
+        }
+        firstIcon={
+          <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
+        }
+      />
       )}>
       <View style={styles.container}>
-        <View>
-          <Image
-            source={{
-              uri: 'https://itisallaboutart.wordpress.com/wp-content/uploads/2018/02/screen-shot-2018-02-23-at-10-18-36-pm.png?w=375&h=243',
-            }}
-            style={styles.coverImageStyle}
-          />
-          <Image source={user} style={styles.profileImageStyle} />
-          <View style={styles.editIconViewStyle}>
-            <Button
-              text="Edit Profile"
-              buttonStyle={styles.editButtonStyle}
-              textStyle={styles.editButtonText}
-            />
-          </View>
-        </View>
-        <View style={styles.infoView}>
-          <View style={styles.UserNameView}>
-            <Text style={styles.nameStyle} numberOfLines={1}>
-              Maria Noor
-            </Text>
-            <Text style={styles.emailStyle}>maria@email.com</Text>
-          </View>
-          <Text style={styles.nameStyle} numberOfLines={1}>
-            Followers 200
-          </Text>
-        </View>
-      </View>
-      {/* <View style={styles.galleryView}> */}
+      <LargeText>Trips Screen</LargeText>
+    
+      {/* <View style={styles.galleryView}>
       <View style={styles.topGalleryView}>
         <Text style={styles.galleryText}>Gallery</Text>
         <Text style={styles.seeAllText}>See all</Text>
       </View>
-      {/* </View> */}
+      </View> 
       <FlatList
         data={galleryData}
         renderItem={renderGalleryItem}
         keyExtractor={(item, index) => String(index)}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.productContainer}
-      />
+      /> */}
+        </View>
     </ScreenWrapper>
   );
 };

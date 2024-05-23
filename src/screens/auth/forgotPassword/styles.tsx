@@ -10,26 +10,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: AppColors.white,
   },
-  nameViewStyle: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: width(90),
-    marginTop:height(1)
+  animatedImageStyle: {
+    height: width(20),
+    width:width(20),
   },
-  nameInputContainerStyle: {
-    width: width(44),
+  signInButtonStyle:{
+    marginBottom:height(2)
   },
-  nameInputTextStyle: {
-    width: width(34),
-  },
-  signUpButtonStyle: {
-    backgroundColor: AppColors.azure,
-    marginTop:height(3)
-  },
-  footerStyle:{
-    alignItems:'center',
-    marginVertical:height(2)
-  }
 });
 
 export default styles;

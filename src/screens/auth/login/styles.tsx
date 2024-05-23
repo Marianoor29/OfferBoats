@@ -15,12 +15,6 @@ const styles = StyleSheet.create({
     height: width(60),
     width: width(60),
   },
-  title: {
-    fontSize: height(3),
-    color: AppColors.white,
-    fontWeight: 'bold',
-    marginBottom: height(4),
-  },
   forgortPass: {
     fontSize: height(2),
     color: AppColors.blue,
@@ -29,29 +23,31 @@ const styles = StyleSheet.create({
     marginRight: width(4),
     fontWeight: 'bold',
   },
-  signupText: {
-    fontSize: height(2),
-    color: AppColors.grey,
-    marginTop: height(2),
-    marginBottom: height(2),
+  forgotPassTextStyle:{
+    alignSelf:'flex-end',
+    marginBottom:height(2),
+    width:width(90)
+  },
+  signInButtonStyle:{
+    marginBottom:height(2)
   },
   socialBtnViewStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // width:width(50),
-    // alignSelf:'center'
+   marginVertical:height(3)
   },
   linkedIn: {
     width: width(8),
     height: width(8),
   },
   logo: {
-    width: width(80),
+    width: width(60),
     height: width(40),
-    marginTop:height(10)
+    marginVertical:height(4)
   },
   signUpButtonStyle: {
-    backgroundColor: AppColors.azure,
+    backgroundColor: AppColors.inputWhite,
+    marginTop:height(4)
   },
 });
 

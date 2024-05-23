@@ -8,6 +8,7 @@ import { Text } from 'react-native';
 type inputProps = {
   secureTextEntry?: any,
   placeholder?: string,
+  title?: string,
   icon?: any,
   rightSideIcon?: any,
   placeholderTextColor?: any,
@@ -15,49 +16,77 @@ type inputProps = {
   keyboardType?: any,
   name: string,
   error?: any,
+  returnKeyLabel?: any,
+  onPressIn?: any,
+  multiline?: boolean,
+  numberOfLines?: number,
+  maxLength?: number,
+  titleStyle?: object,
+  iconStyle?: object,
+  containerStyle?: object,
+  textinputStyle?: object,
   onPressRightIcon?: () => void,
+  onSubmitEditing?: () => void,
 };
 
 const InputField = React.forwardRef(
   (
     {
       placeholder,
-      icon,
-      placeholderTextColor = AppColors.white,
+      titleStyle = {},
+      containerStyle = {},
+      textinputStyle = {},
+      placeholderTextColor = AppColors.grey,
       rightSideIcon,
       control,
+      multiline = false,
+      maxLength,
       name,
+      title,
+      returnKeyLabel,
       secureTextEntry,
       keyboardType,
       error,
+      onPressIn,
+      iconStyle = {},
+      numberOfLines = 1,
       onPressRightIcon = () => null,
+      onSubmitEditing = () => null,
     }: inputProps,
     ref: any,
   ) => {
     return (
       <>
-        <View style={styles.mainContainer}>
-          <View>{icon}</View>
-          <View style={styles.container}>
-            <Controller
-              control={control}
-              render={({ field: { onChange, value } }) => (
-                <TextInput
-                  value={value}
-                  onChangeText={onChange}
-                  placeholder={placeholder}
-                  placeholderTextColor={placeholderTextColor}
-                  style={styles.input}
-                  secureTextEntry={secureTextEntry}
-                  ref={ref}
-                  keyboardType={keyboardType}
-                />
-              )}
-              name={name}
-            />
+        <View style={[styles.mainContainer, containerStyle]}>
+          <View>
+            <Text style={[styles.titleStyle, titleStyle]}>{title}</Text>
+            <View style={[styles.container, textinputStyle]}>
+              <Controller
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <TextInput
+                    value={value}
+                    onChangeText={onChange}
+                    placeholder={placeholder}
+                    placeholderTextColor={placeholderTextColor}
+                    style={styles.input}
+                    secureTextEntry={secureTextEntry}
+                    numberOfLines={numberOfLines}
+                    ref={ref}
+                    multiline={multiline}
+                    keyboardType={keyboardType}
+                    onPressIn={onPressIn}
+                    onSubmitEditing={onSubmitEditing}
+                    maxLength={maxLength}
+                    returnKeyType={returnKeyLabel}
+                  />
+                )}
+                name={name}
+              />
+            </View>
           </View>
           {rightSideIcon && (
-            <TouchableOpacity onPress={onPressRightIcon}>
+            <TouchableOpacity onPress={onPressRightIcon} style={[styles.iconStyle, iconStyle]}>
               {rightSideIcon}
             </TouchableOpacity>
           )}

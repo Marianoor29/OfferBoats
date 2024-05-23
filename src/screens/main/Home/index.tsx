@@ -1,19 +1,16 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
-import styles from './styles';
+import { View } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Octicons from 'react-native-vector-icons/Octicons';
+import { logo } from '../../../assets/images';
 import {
-  CreatePost,
   Header,
-  PopularArtist,
-  Post,
-  ScreenWrapper,
+  LargeText,
+  ScreenWrapper
 } from '../../../components';
 import AppColors from '../../../utils/AppColors';
-import { logo, postPicture, user } from '../../../assets/images';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { width } from '../../../utils/Dimension';
-import { artistData, postData } from '../../../utils/DummyData';
+import styles from './styles';
 
 const Home = ({ navigation }: any) => {
   return (
@@ -25,17 +22,19 @@ const Home = ({ navigation }: any) => {
         <Header
           source={logo}
           icon1={
-            <AntDesign name="search1" size={width(6)} color={AppColors.white} />
+            <AntDesign name="search1" size={width(5)} color={AppColors.yellow} />
           }
           icon2={
-            <AntDesign name="bells" size={width(6)} color={AppColors.white} />
+            <Octicons name="bell-fill" size={width(5)} color={AppColors.yellow} />
           }
           firstIcon={
-            <Ionicons name="filter" size={width(6)} color={AppColors.white} />
+            <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
           }
         />
       )}>
-      <View style={styles.container}></View>
+      <View style={styles.container}>
+      <LargeText>Home Screen</LargeText>
+      </View>
     </ScreenWrapper>
   );
 };

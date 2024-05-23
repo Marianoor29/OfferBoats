@@ -5,11 +5,9 @@ import AppColors from '../../utils/AppColors';
 const styles = StyleSheet.create({
   tabBarStyle: {
     height: Platform.OS === 'ios' ? height(7) : height(8),
-    backgroundColor: AppColors.blue,
+    backgroundColor: AppColors.yellow,
     borderTopColor: AppColors.white,
     borderTopWidth: width(0.3),
-    borderTopRightRadius: width(7),
-    borderTopLeftRadius: width(7),
   },
   tabItemsStyle: {
     alignItems: 'center',
@@ -30,7 +28,9 @@ const styles = StyleSheet.create({
     height: width(7),
     borderRadius: width(9),
   },
-  tabBage: {},
+  textStyle: {
+    fontWeight:'bold'
+  },
 });
 
 export default styles;

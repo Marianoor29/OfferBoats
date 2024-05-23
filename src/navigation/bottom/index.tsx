@@ -1,9 +1,10 @@
-import { Image, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { Cart, Categories, Home, Profile } from '../../screens/main';
 import AppColors from '../../utils/AppColors';
 import styles from './styles';
@@ -40,6 +41,9 @@ export default function MyTabs({ navigation }: any) {
                   size={width(6)}
                   color={focused ? AppColors.darkblue : AppColors.white}
                 />
+                 <Text style={[styles.textStyle,{color: (focused? AppColors.black: AppColors.white)}]}>
+                 Home
+                </Text>
               </View>
             );
           }
@@ -56,13 +60,14 @@ export default function MyTabs({ navigation }: any) {
                     },
                   ]}
                 />
-                <Image
-                  source={user}
-                  style={[
-                    styles.userImageStyle,
-                    { opacity: focused ? 1 : 0.5 },
-                  ]}
+                <Ionicons
+                  name={'boat'}
+                  size={width(6)}
+                  color={focused ? AppColors.darkblue : AppColors.white}
                 />
+                 <Text style={[styles.textStyle,{color: (focused? AppColors.black: AppColors.white)}]}>
+                 Trip
+                </Text>
               </View>
             );
           }
@@ -79,11 +84,16 @@ export default function MyTabs({ navigation }: any) {
                     },
                   ]}
                 />
-                <AntDesign
-                  name={'shoppingcart'}
-                  size={width(6)}
-                  color={focused ? AppColors.darkblue : AppColors.white}
+                  <Image
+                  source={user}
+                  style={[
+                    styles.userImageStyle,
+                    { opacity: focused ? 1 : 0.5 },
+                  ]}
                 />
+                 <Text style={[styles.textStyle,{color: (focused? AppColors.black: AppColors.white)}]}>
+                Profile
+                </Text>
               </View>
             );
           }
@@ -100,11 +110,14 @@ export default function MyTabs({ navigation }: any) {
                     },
                   ]}
                 />
-                <MaterialIcons
-                  name={'category'}
+                <FontAwesome6
+                  name={'circle-dollar-to-slot'}
                   size={width(6)}
                   color={focused ? AppColors.darkblue : AppColors.white}
                 />
+                 <Text style={[styles.textStyle,{color: (focused? AppColors.black: AppColors.white)}]}>
+                 Offers
+                </Text>
               </View>
             );
           }

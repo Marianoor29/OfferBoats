@@ -1,6 +1,7 @@
 export { default as Button } from './button';
 export { default as CustomText } from './customText';
 export { default as InputField } from './inputField';
+export { default as ModalWrapper } from './modalWrapper';
 export { default as BottomIcons } from './bottomIcons';
 export { default as ScreenWrapper } from './screenWrapper';
 export { default as Header } from './header';
@@ -14,3 +15,4 @@ export { default as CategoryBox } from './categoryBox';
 export { default as TopProductCard } from './topProductCard';
 export { default as CartItemBox } from './cartIemBox';
 export { default as Loader } from './loader';
+export {LargeText,MediumText,SmallText,UnderLineText} from './text'

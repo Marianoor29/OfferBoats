@@ -4,27 +4,35 @@ import AppColors from '../../utils/AppColors';
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: AppColors.white,
-    width: width(90),
-    // height: height(8),
-    flexDirection: 'row',
-    paddingHorizontal: width(2.5),
-    paddingVertical: height(1.3),
-    borderRadius: height(0.5),
-    borderColor: AppColors.grey,
-    borderWidth: width(0.3),
+    backgroundColor:AppColors.inputWhite,
+    borderRadius:width(3),
+    padding:width(2),
+    width:width(90),
+    flexDirection:'row',
+    // marginTop:height(0.5)
+  },
+  titleStyle:{
+    fontSize:width(3.3),
+    color:AppColors.black,
+    paddingLeft:width(2),
+    fontWeight:'500'
   },
   container: {
-    backgroundColor: AppColors.white,
-    width: width(68),
+    width: width(76),
     marginLeft: width(1),
   },
   input: {
-    width: width(68),
-    color: AppColors.grey,
-    fontSize: width(3.8),
-    paddingTop: 0,
-    paddingBottom: 0,
+    color:AppColors.black,
+    fontSize:width(3.8),
+    paddingBottom:width(0.1),
+    marginHorizontal:width(1),
+    paddingTop:0,
+  },
+  iconStyle:{
+    height:height(5),
+    width:width(7),
+    justifyContent:'center',
+    alignSelf:'flex-end',
   },
   errorView: {
     alignSelf: 'flex-start',

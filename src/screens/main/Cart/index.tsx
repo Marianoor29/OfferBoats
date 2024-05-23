@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styles from './styles';
-import { logo } from '../../../assets/images';
+import { logo, user } from '../../../assets/images';
 import AppColors from '../../../utils/AppColors';
 import {
   Button,
   CartItemBox,
   Header,
+  LargeText,
   ScreenWrapper,
 } from '../../../components';
 import Feather from 'react-native-vector-icons/Feather';
@@ -34,26 +35,45 @@ const Cart = ({ navigation }: any) => {
         <Header
           source={logo}
           icon1={
-            <Feather name="settings" color={AppColors.white} size={width(5)} />
+            <Feather name="settings" color={AppColors.yellow} size={width(5)} />
           }
           icon2={
-            <Feather name="log-out" color={AppColors.white} size={width(5)} />
+            <Feather name="log-out" color={AppColors.yellow} size={width(5)} />
           }
           onPressFirstIcon2={logOutMethod}
         />
       )}
-      footerUnScrollable={() => (
-        <View style={styles.bottomContainer}>
-          <View style={styles.totalAmountView}>
-            <Text style={styles.totalText}>Total</Text>
-            <Text style={styles.totalPriceText}>$470</Text>
-          </View>
-          <Button text={'Check Out'} />
-        </View>
-      )}>
+    >
       <View style={styles.container}>
-        <Text style={styles.topTitleText}>Shopping Cart</Text>
-        {cartList.map((item, key) => {
+        {/* <LargeText>Profile Screen</LargeText> */}
+        <View>
+          <Image
+            source={{
+              uri: 'https://itisallaboutart.wordpress.com/wp-content/uploads/2018/02/screen-shot-2018-02-23-at-10-18-36-pm.png?w=375&h=243',
+            }}
+            style={styles.coverImageStyle}
+          />
+          <Image source={user} style={styles.profileImageStyle} />
+          <View style={styles.editIconViewStyle}>
+            <Button
+              text="Edit Profile"
+              buttonStyle={styles.editButtonStyle}
+              textStyle={styles.editButtonText}
+            />
+          </View>
+        </View>
+        <View style={styles.infoView}>
+          <View style={styles.UserNameView}>
+            <Text style={styles.nameStyle} numberOfLines={1}>
+              Maria Noor
+            </Text>
+            <Text style={styles.emailStyle}>maria@email.com</Text>
+          </View>
+          {/* <Text style={styles.nameStyle} numberOfLines={1}>
+            Followers 200
+          </Text> */}
+        </View>
+        {/* {cartList.map((item, key) => {
           return (
             <CartItemBox
               key={key}
@@ -63,7 +83,7 @@ const Cart = ({ navigation }: any) => {
               counter={item.counter}
             />
           );
-        })}
+        })} */}
       </View>
     </ScreenWrapper>
   );

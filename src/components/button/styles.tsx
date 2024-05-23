@@ -4,7 +4,7 @@ import { height, width } from '../../utils/Dimension';
 
 export default StyleSheet.create({
   buttonStyle: {
-    backgroundColor: AppColors.blue,
+    backgroundColor: AppColors.yellow,
     width: width(80),
     alignItems: 'center',
     paddingVertical: height(2),

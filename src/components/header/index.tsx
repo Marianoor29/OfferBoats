@@ -29,7 +29,8 @@ const Header = ({
       <Pressable onPress={onPressFirstIcon} style={styles.emptyView}>
         {firstIcon}
       </Pressable>
-      <Image source={source} style={styles.logo} />
+      {source && (
+      <Image source={source} style={styles.logo} resizeMode='contain' /> )}
       {iconView && (
         <View style={styles.iconView}>
           <Pressable onPress={onPressFirstIcon1}>{icon1}</Pressable>
