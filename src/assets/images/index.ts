@@ -22,3 +22,4 @@ export const user2 = require('../images/user2.png');
 export const payment = require('../images/payment.png');
 export const setting = require('../images/Setting.png');
 export const postPicture = require('../images/postPicture.jpg');
+export const logoHat = require('../images/logoHat.png');
