@@ -1,16 +1,14 @@
-import { Image, Text, View } from 'react-native';
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import React from 'react';
+import { Image, Text, View } from 'react-native';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-import { Cart, Categories, Home, Profile } from '../../screens/main';
-import AppColors from '../../utils/AppColors';
-import styles from './styles';
-import ScreenNames from '../routes';
-import { width } from '../../utils/Dimension';
+import { default as Icon, default as Ionicons } from 'react-native-vector-icons/Ionicons';
 import { user } from '../../assets/images';
+import { Profile, Home, Offers, Trip } from '../../screens/main';
+import AppColors from '../../utils/AppColors';
+import { width } from '../../utils/Dimension';
+import ScreenNames from '../routes';
+import styles from './styles';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +45,7 @@ export default function MyTabs({ navigation }: any) {
               </View>
             );
           }
-          if (route.name === ScreenNames.PROFILE) {
+          if (route.name === ScreenNames.TRIP) {
             return (
               <View style={styles.tabItemsStyle}>
                 <View
@@ -71,7 +69,7 @@ export default function MyTabs({ navigation }: any) {
               </View>
             );
           }
-          if (route.name === ScreenNames.CART) {
+          if (route.name === ScreenNames.PROFILE) {
             return (
               <View style={styles.tabItemsStyle}>
                 <View
@@ -97,7 +95,7 @@ export default function MyTabs({ navigation }: any) {
               </View>
             );
           }
-          if (route.name === ScreenNames.CATEGORIES) {
+          if (route.name === ScreenNames.OFFERS) {
             return (
               <View style={styles.tabItemsStyle}>
                 <View
@@ -124,12 +122,11 @@ export default function MyTabs({ navigation }: any) {
         },
       })}>
       <Tab.Screen name={ScreenNames.HOME} component={Home} />
-      <Tab.Screen name={ScreenNames.CATEGORIES} component={Categories} />
-      <Tab.Screen name={ScreenNames.PROFILE} component={Profile} />
+      <Tab.Screen name={ScreenNames.OFFERS} component={Offers} />
+      <Tab.Screen name={ScreenNames.TRIP} component={Trip} />
       <Tab.Screen
-        name={ScreenNames.CART}
-        component={Cart}
-        options={{ tabBarBadge: 3 }}
+        name={ScreenNames.PROFILE}
+        component={Profile}
       />
     </Tab.Navigator>
   );

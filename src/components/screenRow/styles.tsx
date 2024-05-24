@@ -4,33 +4,21 @@ import AppColors from "../../utils/AppColors";
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:AppColors.azure,
-        width:width(25),
-        marginHorizontal:width(1),
-        marginVertical:height(2),
-        shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 3,
+        backgroundColor:AppColors.white,
+        width:width(90),
+        marginHorizontal:width(7),
+        marginVertical:height(0.6),
         alignItems:'center',
-        justifyContent:'center',
         borderRadius:width(2),
-    },
-    text: {
-        fontSize:width(5),
-        color:AppColors.black
+        flexDirection:'row',
     },
     userImage:{
-        height:width(10.4),
-        width:width(10.4), 
+        height:width(8.4),
+        width:width(8.4), 
     },
-    artistName:{
+    screenName:{
         color:AppColors.black,
-        fontSize:width(4),
+        fontSize:width(3.6),
         paddingHorizontal:width(2),
         paddingVertical:height(1),
         alignSelf:'center',

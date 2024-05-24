@@ -1,18 +1,21 @@
 import { StyleSheet } from 'react-native';
-import AppColors from '../../../utils/AppColors';
-import { height, width } from '../../../utils/Dimension';
+import AppColors from '../../utils/AppColors';
+import { height, width } from '../../utils/Dimension';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: AppColors.white,
+    width: width(100),
+    paddingVertical:height(1),
+    marginBottom:height(0.2),
+    alignItems:'center',
+    justifyContent:'space-between',
+    backgroundColor:AppColors.white,
+
   },
   coverImageStyle: {
     width: width(90),
     height: height(20),
-    borderRadius: width(3),
+    borderRadius: width(2),
   },
   profileImageStyle: {
     width: width(24),
@@ -55,3 +58,4 @@ export default StyleSheet.create({
     fontSize: width(3),
   },
 });
+export default styles;

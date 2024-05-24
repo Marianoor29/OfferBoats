@@ -1,196 +1,167 @@
-import { postPicture, user, user1, user2 } from '../assets/images';
-import AppColors from './AppColors';
+import {ORDER_STATUSES} from '../utils/enum'
 
-export const userData = {
-  name: 'Maria Noor',
-  education: 'Master in Computer Science',
-  address: 'Rugby, England',
-  jobTitle: 'Software Developer',
-};
-
-export const postData = [
+export const GallertList =[
   {
-    key: 1,
-    source: user,
-    postPicture: postPicture,
-    Price: '400',
-    caption:
-      'Rate my new Art work, If anyone intrested to buy please chicke the order button bellow',
-    userName: 'Maria Noor',
-    time: '3 min',
+    source: 'https://i0.wp.com/www.tripstodiscover.com/wp-content/uploads/2016/09/bigstock-Honolulu-Hawaii-111984635-1.jpg?resize=784%2C588',
+    title:'Change Your Mind, Change Your Trip',
+    caption:'Hotels with free cancellation'
   },
   {
-    key: 2,
-    source: user2,
-    postPicture: {
-      uri: 'https://carolineashwood.co.uk/cdn/shop/files/new-lenny-original-abstract-wall-art-39533093814518_2000x.jpg?v=1701705107',
-    },
-    Price: '400',
-    caption:
-      'Rate my new Art work, If anyone intrested to buy please chicke the order button bellow',
-    userName: 'Maria Noor',
-    time: '3 min',
+    source: 'https://www.planetware.com/photos-large/USNY/usa-best-places-new-york.jpg',
+    title:'Change Your Mind, Change Your Trip',
+    caption:'Hotels with free cancellation'
   },
   {
-    key: 3,
-    source: user1,
-    postPicture: postPicture,
-    Price: '400',
-    caption:
-      'Rate my new Art work, If anyone intrested to buy please chicke the order button bellow',
-    userName: 'Maria Noor',
-    time: '3 min',
+    source: 'https://www.jenlovespets.com/wp-content/uploads/2020/03/Top-5-best-vacation-spots-in-the-US-1.png',
+    title:'Change Your Mind, Change Your Trip',
+    caption:'Hotels with free cancellation'
+  },
+  {
+    source: 'https://media.nomadicmatt.com/2022/vietnamcheap1.jpeg',
+    title:'Change Your Mind, Change Your Trip',
+    caption:'Hotels with free cancellation'
+  },
+  {
+    source: 'https://theworldpursuit.com/wp-content/uploads/2021/06/Florida-Keys-Raod-trip-.jpeg',
+    title:'Change Your Mind, Change Your Trip',
+    caption:'Hotels with free cancellation'
+  },
+]
+
+export const orderData = [
+  {
+    id: 1,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.PENDING,
+  },
+  {
+    id: 2,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 13:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, pakistan",
+    price: "99.99",
+    status: ORDER_STATUSES.CONFIRMED,
+  },
+  {
+    id: 3,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.PENDING,
+  },
+  {
+    id: 4,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.CANCELLED,
+  },
+  {
+    id: 5,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.COMPLETED,
+  },
+  {
+    id: 6,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.COMPLETED,
+  },
+  {
+    id: 7,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.CONFIRMED,
+  },
+
+  {
+    id: 8,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.COMPLETED,
+  },
+  {
+    id: 9,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.COMPLETED,
+  },
+  {
+    id: 10,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.CANCELLED,
+  },
+  {
+    id: 11,
+    date: '12/03/2024',
+    serviceName: "OfferBoats",
+    serviceDesc: "Delivery by 11:36 am",
+    address: "14 Wall Street, Manhattan, New York City, NY, USA",
+    price: "91.84",
+    status: ORDER_STATUSES.CANCELLED,
   },
 ];
 
-export const artistData = [
+export const offersList =[
   {
-    key: 1,
-    source: user,
-    artistName: 'John Doe',
+    key:1,
+    source:'https://tripbeam.com/blog/wp-content/uploads/2015/11/fiji.jpg',
+    title:'Dream Vacation spots on Earth',
+    price:'1000',
+    members: "10 - 15 members",
+    duration: "4 Hours"
   },
   {
-    key: 2,
-    source: user1,
-    artistName: 'John Doe',
+    key:2,
+    source:'https://www.tripsavvy.com/thmb/MlAVE9PdAhhO3gXTaivg5Ty9GYI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Statue-liberty-56b008a15f9b58b7d01f9e4e.jpg',
+    title:'Top Vacation Destinations on the U.S. East Coast',
+    price:'1200',
+    members: "10 - 20 members",
+    duration: "6 Hours"
   },
   {
-    key: 3,
-    source: user2,
-    artistName: 'John Doe',
+    key:3,
+    source:'https://i0.wp.com/readymadetravelplans.com/wp-content/uploads/Summer-Family-Vacation-Places.jpeg?resize=1024%2C682&ssl=1',
+    title:'Family Summer Vacation Places in the U.S.',
+    price:'1500',
+    members: "20 - 25 members",
+    duration: "7 Hours"
   },
   {
-    key: 4,
-    source: user,
-    artistName: 'John Doe',
+    key:4,
+    source:'https://travelsouth.visittheusa.com/sites/default/files/styles/16_9_470x264/public/2016-10/1%20HERO_Paddleboard%20Lake%20Springfield_Web72DPI_1.jpg?itok=t97wS-VH',
+    title:'Travel South USA: Southeastern USA Vacations ',
+    price:'800',
+    members: "30 - 34 members",
+    duration: "2 Hours"
   },
-  {
-    key: 4,
-    source: user1,
-    artistName: 'John Doe',
-  },
-  {
-    key: 5,
-    source: user2,
-    artistName: 'John Doe',
-  },
-];
-
-export const galleryData = [
-  {
-    uri: 'https://carolineashwood.co.uk/cdn/shop/files/new-lenny-original-abstract-wall-art-39533093814518_2000x.jpg?v=1701705107',
-    title: 'Original Colourful Abstract Painting',
-    price: '$120',
-  },
-  {
-    uri: 'https://images.photowall.com/products/77748/tall-ships-paintings.jpg?h=699&q=85',
-    title: 'Tall Ships Paintings',
-    price: '$130',
-  },
-  {
-    uri: 'https://i0.wp.com/cdn.tiqets.com/wordpress/blog/wp-content/uploads/2023/06/05164214/paintings-of-venice-1.jpg?resize=1024%2C683&ssl=1',
-    title: 'The Most Famous Paintings of Venice',
-    price: '$240',
-  },
-  {
-    uri: 'https://images.joseartgallery.com/100737/what-color-paintings-sell-best.jpg',
-    title: 'Jose Art Gallery',
-    price: '$120',
-  },
-  {
-    uri: 'https://i.etsystatic.com/17358183/r/il/321f5b/4644988646/il_570xN.4644988646_hiao.jpg',
-    title: 'Lake Como Oil Painting Original Italy Landscape',
-    price: '$180',
-  },
-  {
-    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4vflT_IbY6bGitDEPVNJ7yQPMtTr2MjmRAN4VyqrUbQ&s',
-    title: 'Original artworks for sale',
-    price: '$200',
-  },
-];
-
-export const categoryList = [
-  {
-    source:
-      'https://carolineashwood.co.uk/cdn/shop/files/new-lenny-original-abstract-wall-art-39533093814518_2000x.jpg?v=1701705107',
-    categoryName: 'Paintings',
-    numberOfItems: '1500 items',
-  },
-  {
-    source:
-      'https://cdn.shopify.com/s/files/1/0036/8757/9760/files/82.jpg?v=1604230225',
-    categoryName: 'Abstract art',
-    numberOfItems: '1600 items',
-  },
-  {
-    source: 'https://i.redd.it/djh0glv80bua1.jpg',
-    categoryName: 'Drawings',
-    numberOfItems: '1100 items',
-  },
-  {
-    source:
-      'https://static.vecteezy.com/system/resources/thumbnails/000/225/241/small_2x/hand-gesture-modern-pop-art-vector.jpg',
-    categoryName: 'Pop Art',
-    numberOfItems: '1300 items',
-  },
-  {
-    source:
-      'https://animationworkshop.via.dk/-/media/taw-v2/programmes-and-courses/bachelor-programmes/images/computer-graphic-arts/fayburrow-960x480-v2.jpg',
-    categoryName: 'Computer art',
-    numberOfItems: '900 items',
-  },
-];
-
-export const offersList = [
-  {
-    key: 1,
-    source:
-      'https://cdn.shopify.com/s/files/1/0036/8757/9760/files/82.jpg?v=1604230225',
-    title: 'Best Spring Offer',
-    subTitle: 'Abstract art',
-    number: '30',
-    backgroundColor: AppColors.chocolate,
-  },
-  {
-    key: 2,
-    source:
-      'https://animationworkshop.via.dk/-/media/taw-v2/programmes-and-courses/bachelor-programmes/images/computer-graphic-arts/fayburrow-960x480-v2.jpg',
-    title: 'Best Spring Offer',
-    subTitle: 'Computer art',
-    number: '20',
-    backgroundColor: AppColors.cornflowerblue,
-  },
-  {
-    key: 3,
-    source: 'https://i.redd.it/djh0glv80bua1.jpg',
-    title: 'Best Spring Offer',
-    subTitle: 'Drawing art',
-    number: '40',
-    backgroundColor: AppColors.greenyellow,
-  },
-];
-export const cartList = [
-  {
-    key: 1,
-    source:
-      'https://cdn.shopify.com/s/files/1/0036/8757/9760/files/82.jpg?v=1604230225',
-    itemName: 'Abstract Art',
-    price: '$200',
-    counter: '1',
-  },
-  {
-    key: 2,
-    source: 'https://i.redd.it/djh0glv80bua1.jpg',
-    itemName: 'Drawing art',
-    price: '$140',
-    counter: '2',
-  },
-  {
-    key: 3,
-    source:
-      'https://static.vecteezy.com/system/resources/thumbnails/000/225/241/small_2x/hand-gesture-modern-pop-art-vector.jpg',
-    itemName: 'Pop Art',
-    price: '$230',
-    counter: '1',
-  },
-];
+]

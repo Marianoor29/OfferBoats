@@ -1,23 +1,39 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
-import styles from './styles';
+import { Image, Text, View } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
+import { logo, payment, setting, user } from '../../../assets/images';
 import {
   Button,
-  GalleryCard,
   Header,
-  LargeText,
-  ScreenWrapper,
+  ProfileHeader,
+  ScreenRow,
+  ScreenWrapper
 } from '../../../components';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Octicons from 'react-native-vector-icons/Octicons';
+import { setAppLoader } from '../../../redux/slice/config/loaderSlice';
+import { loginUser } from '../../../redux/slice/user/userSlice';
+import { useAppDispatch } from '../../../redux/store/hook';
 import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
-import { logo, user } from '../../../assets/images';
-import { galleryData } from '../../../utils/DummyData';
+import styles from './styles';
 
+const ScreenRowList = [
+  {
+    source:{payment},
+    screenName:'Payment Method'
+  },
+  {
+    source:{setting},
+    screenName:'Settings'
+  },
+]
 const Profile = ({ navigation }: any) => {
-  const renderGalleryItem = ({ item }: any) => {
-    return <GalleryCard uri={item.uri} title={item.title} price={item.price} />;
+  const dispatch = useAppDispatch();
+  const logOutMethod = () => {
+    dispatch(setAppLoader(true));
+    setTimeout(() => {
+      dispatch(loginUser(false));
+      dispatch(setAppLoader(false));
+    }, 600);
   };
   return (
     <ScreenWrapper
@@ -26,35 +42,29 @@ const Profile = ({ navigation }: any) => {
       barStyle="light-content"
       headerUnScrollable={() => (
         <Header
-        source={logo}
-        icon1={
-          <AntDesign name="search1" size={width(5)} color={AppColors.yellow} />
-        }
-        icon2={
-          <Octicons name="bell-fill" size={width(5)} color={AppColors.yellow} />
-        }
-        firstIcon={
-          <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
-        }
-      />
-      )}>
+          source={logo}
+          icon1={
+            <Feather name="settings" color={AppColors.yellow} size={width(5)} />
+          }
+          icon2={
+            <Feather name="log-out" color={AppColors.yellow} size={width(5)} />
+          }
+          onPressFirstIcon2={logOutMethod}
+        />
+      )}
+    >
       <View style={styles.container}>
-      <LargeText>Trips Screen</LargeText>
-    
-      {/* <View style={styles.galleryView}>
-      <View style={styles.topGalleryView}>
-        <Text style={styles.galleryText}>Gallery</Text>
-        <Text style={styles.seeAllText}>See all</Text>
+       <ProfileHeader />
+       {ScreenRowList.map((item, key) => {
+        return(
+        <ScreenRow 
+       source={item.source}
+       screenName= {item.screenName}
+       />
+        )
+       })}
+       
       </View>
-      </View> 
-      <FlatList
-        data={galleryData}
-        renderItem={renderGalleryItem}
-        keyExtractor={(item, index) => String(index)}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.productContainer}
-      /> */}
-        </View>
     </ScreenWrapper>
   );
 };

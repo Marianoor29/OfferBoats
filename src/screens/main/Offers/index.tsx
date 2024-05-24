@@ -4,29 +4,35 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import { logo } from '../../../assets/images';
 import {
-  Gallery,
+  Button,
   Header,
   LargeText,
-  ScreenWrapper
+  ScreenWrapper,
+  TopProductCard
 } from '../../../components';
 import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
 import styles from './styles';
-import { GallertList } from '../../../utils/DummyData';
+import { offersList } from '../../../utils/DummyData';
 
-const Home = ({ navigation }: any) => {
-  const renderGalleryItems = ({ item }: any) => {
+const Offers = ({ navigation }: any) => {
+  const renderOfferItem = ({ item }: any) => {
     return (
-      <Gallery
-        source={item.source}
-        title={item.title}
-        caption={item.caption}
-      />
-    );
-  };
+      <TopProductCard 
+      source={item.source}
+      title={item.title}
+      price={item.price}
+      duration={item.duration}
+      members={item.members}
+      backgroundColor={item.backgroundColor}
+   />
+    )
+  }
   return (
     <ScreenWrapper
-    scrollEnabled
+      scrollEnabled
+      statusBarColor={AppColors.blue}
+      barStyle="light-content"
       headerUnScrollable={() => (
         <Header
           source={logo}
@@ -42,18 +48,18 @@ const Home = ({ navigation }: any) => {
         />
       )}>
       <View style={styles.container}>
-        <LargeText size={5}>Ideas for your next trip</LargeText>
-        <FlatList
-          data={GallertList}
-          renderItem={renderGalleryItems}
-          keyExtractor={(item, index) => String(index)}
-          showsVerticalScrollIndicator={false}
-          scrollEnabled={false}
-          contentContainerStyle={styles.productContainer}
-        />
-      </View>
+      <FlatList
+              data={offersList}
+              renderItem={renderOfferItem}
+              keyExtractor={(item, index) => String(index)}
+              showsVerticalScrollIndicator={true}
+              scrollEnabled={false}
+              contentContainerStyle={styles.statusRawContainer}
+            />
+      
+        </View>
     </ScreenWrapper>
   );
 };
 
-export default Home;
+export default Offers;

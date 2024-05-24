@@ -6,17 +6,18 @@ const styles = StyleSheet.create({
   container: {
     width: width(100),
     paddingVertical:height(1),
-    marginBottom:height(3),
+    marginBottom:height(0.2),
     alignSelf:'center',
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
     backgroundColor:AppColors.white,
-    shadowColor: '#000',
+    shadowColor: AppColors.yellow,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.5,
     shadowRadius: 8,
     elevation: 10,
+
   },
   emptyView: {
     width: width(25),

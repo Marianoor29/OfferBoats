@@ -13,5 +13,8 @@ const AppColors = {
   cornflowerblue: '#6495ed',
   greenyellow: '#b0c4de',
   inputWhite: '#F7F7F7',
+  blackShadow: '#00000050',
+  green: '#006400',
+  seaGreen: '#8fbc8f'
 };
 export default AppColors;

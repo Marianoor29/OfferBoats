@@ -6,7 +6,10 @@ export const Images = {
   user: require('../images/user.png'),
   user1: require('../images/user1.png'),
   user2: require('../images/user2.png'),
+  payment: require('../images/payment.png'),
+  setting: require('../images/Setting.png'),
   postPicture: require('../images/postPicture.jpg'),
+  logoHat: require('../images/logoHat.png'),
 };
 
 export const google = require('../images/google.png');
@@ -16,4 +19,6 @@ export const logo = require('../images/logo.png');
 export const user = require('../images/user.png');
 export const user1 = require('../images/user1.png');
 export const user2 = require('../images/user2.png');
+export const payment = require('../images/payment.png');
+export const setting = require('../images/Setting.png');
 export const postPicture = require('../images/postPicture.jpg');

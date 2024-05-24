@@ -55,9 +55,7 @@ const Login = ({ navigation }: any) => {
   };
   return (
     <ScreenWrapper
-      scrollEnabled
-      statusBarColor={AppColors.white}
-      barStyle="dark-content">
+      scrollEnabled>
       <View style={styles.container}>
         <Image source={logo} style={styles.logo} resizeMode="contain"/>
         <LargeText textStyles={CommonStyles.marginBottom_2}> Log in to your account</LargeText>

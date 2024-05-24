@@ -1,11 +1,11 @@
 const ScreenNames = {
   HOME: 'Home',
-  PROFILE: 'Profile',
+  TRIP: 'Trip',
   LOGIN: 'Login',
   SIGNUP: 'SignUp',
   FORGOTPASSWORD: 'ForgotPassword',
-  CART: 'Cart',
-  CATEGORIES: 'Categories',
+  PROFILE: 'Profile',
+  OFFERS: 'Offers',
   HOMEBASE: 'HomeBase',
 };
 

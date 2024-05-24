@@ -43,8 +43,6 @@ const ForgotPassword = ({ navigation }: any) => {
   return (
     <ScreenWrapper
       scrollEnabled
-      statusBarColor={AppColors.white}
-      barStyle="dark-content"
       headerUnScrollable={() => {
         return (
           <Header

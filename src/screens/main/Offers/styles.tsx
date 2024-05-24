@@ -27,8 +27,7 @@ export default StyleSheet.create({
     color: AppColors.grey,
   },
   statusRawContainer: {
-    flexDirection: 'row',
-    marginHorizontal: width(1),
+    marginVertical: height(1),
   },
   productContainer: {
     alignItems: 'center',

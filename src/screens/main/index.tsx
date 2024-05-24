@@ -1,4 +1,4 @@
 export { default as Home } from './Home';
+export { default as Trip } from './Trip';
 export { default as Profile } from './Profile';
-export { default as Cart } from './Cart';
-export { default as Categories } from './Categories';
+export { default as Offers } from './Offers';

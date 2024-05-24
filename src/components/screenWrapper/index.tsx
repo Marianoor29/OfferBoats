@@ -20,7 +20,7 @@ type wrapperProps = {
   backgroundColor?: string,
   headerUnScrollable?: () => void,
   footerUnScrollable?: () => void,
-  barStyle: StatusBarStyle,
+  barStyle?: StatusBarStyle,
 };
 const ScreenWrapper = ({
   children,
