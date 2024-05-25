@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   logo: {
     width: width(60),
     height: width(40),
-    marginVertical:height(4)
+    marginVertical:height(2)
   },
   signUpButtonStyle: {
     backgroundColor: AppColors.inputWhite,

@@ -1,32 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import { logo, payment, setting, user } from '../../../assets/images';
+import { logo, logout, payment, setting, transaction,  } from '../../../assets/images';
 import {
   Button,
-  Header,
   ProfileHeader,
+  ProfileInfo,
   ScreenRow,
-  ScreenWrapper
+  ScreenWrapper,
+  SwitchButtonRow
 } from '../../../components';
 import { setAppLoader } from '../../../redux/slice/config/loaderSlice';
 import { loginUser } from '../../../redux/slice/user/userSlice';
 import { useAppDispatch } from '../../../redux/store/hook';
 import AppColors from '../../../utils/AppColors';
-import { width } from '../../../utils/Dimension';
+import ScreenNames from '../../../navigation/routes';
 import styles from './styles';
 
 const ScreenRowList = [
   {
-    source:{payment},
+    key:1,
+    source:payment,
     screenName:'Payment Method'
   },
   {
-    source:{setting},
+    key:2,
+    source:transaction,
+    screenName:'Transactions'
+  },
+  {
+    key:3,
+    source:setting,
     screenName:'Settings'
   },
+
 ]
 const Profile = ({ navigation }: any) => {
+  const [isEnabled, setIsEnabled] = useState(false);
   const dispatch = useAppDispatch();
   const logOutMethod = () => {
     dispatch(setAppLoader(true));
@@ -35,35 +45,45 @@ const Profile = ({ navigation }: any) => {
       dispatch(setAppLoader(false));
     }, 600);
   };
+
   return (
     <ScreenWrapper
       scrollEnabled
       statusBarColor={AppColors.blue}
       barStyle="light-content"
       headerUnScrollable={() => (
-        <Header
-          source={logo}
-          icon1={
-            <Feather name="settings" color={AppColors.yellow} size={width(5)} />
-          }
-          icon2={
-            <Feather name="log-out" color={AppColors.yellow} size={width(5)} />
-          }
-          onPressFirstIcon2={logOutMethod}
+        <ProfileHeader 
+        isEnabled={isEnabled}
+        toggleSwitch={() => setIsEnabled(previousState => !previousState)}
+        onPressFirstIcon2={() => navigation.navigate(ScreenNames.NOTIFICATION)}
         />
       )}
     >
       <View style={styles.container}>
-       <ProfileHeader />
+       <ProfileInfo
+       coverImage = 'https://clubmahindra.gumlet.io/blog/media/section_images/summervaca-7c8772fe00929fa.jpg?w=376&dpr=2.6'
+       userImage = 'https://images.news18.com/ibnlive/uploads/2023/05/want-a-yummy-dip-for-sandwiches-try-this-easy-tomato-chutney-recipe-36-16848174013x2.png?impolicy=website&width=640&height=480'
+       firstName = 'Maria'
+       lastName= 'Noor'
+       email= 'maria@email.com'
+       completedTrips= '10'
+       rating= {3.4}
+       />
+    
        {ScreenRowList.map((item, key) => {
         return(
         <ScreenRow 
+        key={item.key}
        source={item.source}
        screenName= {item.screenName}
        />
         )
        })}
-       
+        <ScreenRow 
+         source={logout}
+         screenName={'Logout'}
+         onPress={logOutMethod}
+       />
       </View>
     </ScreenWrapper>
   );

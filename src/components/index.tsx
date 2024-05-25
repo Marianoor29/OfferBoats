@@ -12,4 +12,7 @@ export { default as TripOrders } from './tripHistoryCard';
 export { default as TopProductCard } from './topProductCard';
 export { default as ProfileHeader } from './profileHeader';
 export { default as ScreenRow } from './screenRow';
+export { default as ProfileInfo } from './profileInfo';
+export { default as SwitchButtonRow } from './switchButton';
+export { default as NotificationBar } from './notificationBar';
 export {LargeText,MediumText,SmallText,UnderLineText} from './text'

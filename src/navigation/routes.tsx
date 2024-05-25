@@ -7,6 +7,7 @@ const ScreenNames = {
   PROFILE: 'Profile',
   OFFERS: 'Offers',
   HOMEBASE: 'HomeBase',
+  NOTIFICATION: 'Notification',
 };
 
 export default ScreenNames;

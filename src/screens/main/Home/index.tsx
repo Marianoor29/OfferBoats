@@ -13,6 +13,7 @@ import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
 import styles from './styles';
 import { GallertList } from '../../../utils/DummyData';
+import ScreenNames from '../../../navigation/routes';
 
 const Home = ({ navigation }: any) => {
   const renderGalleryItems = ({ item }: any) => {
@@ -30,15 +31,10 @@ const Home = ({ navigation }: any) => {
       headerUnScrollable={() => (
         <Header
           source={logo}
-          icon1={
-            <AntDesign name="search1" size={width(5)} color={AppColors.yellow} />
-          }
-          icon2={
-            <Octicons name="bell-fill" size={width(5)} color={AppColors.yellow} />
-          }
           firstIcon={
             <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
           }
+          onPressFirstIcon2={() => navigation.navigate(ScreenNames.NOTIFICATION)}
         />
       )}>
       <View style={styles.container}>

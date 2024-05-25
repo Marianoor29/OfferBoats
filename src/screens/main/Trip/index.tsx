@@ -14,6 +14,7 @@ import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
 import { orderData } from '../../../utils/DummyData';
 import { ORDER_STATUSES } from '../../../utils/enum';
+import ScreenNames from '../../../navigation/routes';
 import styles from './styles';
 
 const Trip = ({ navigation }: any) => {
@@ -71,15 +72,10 @@ const Trip = ({ navigation }: any) => {
       headerUnScrollable={() => (
         <Header
           source={logo}
-          icon1={
-            <AntDesign name="search1" size={width(5)} color={AppColors.yellow} />
-          }
-          icon2={
-            <Octicons name="bell-fill" size={width(5)} color={AppColors.yellow} />
-          }
           firstIcon={
             <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
           }
+          onPressFirstIcon2={() => navigation.navigate(ScreenNames.NOTIFICATION)}
         />
       )}>
       <View style={styles.container}>

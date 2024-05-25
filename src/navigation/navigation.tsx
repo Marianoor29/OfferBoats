@@ -7,6 +7,7 @@ import { ForgotPassword, Login, SignUp } from '../screens/auth';
 import { useAppSelector } from '../redux/store/hook';
 import { Loader } from '../components';
 import SplashScreen from 'react-native-splash-screen'
+import { Notification } from '../screens/main';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,11 @@ const MainNavigation = () => {
             name={ScreenNames.HOMEBASE}
             options={{ headerShown: false }}
             component={MyTabs}
+          />
+            <Stack.Screen
+            name={ScreenNames.NOTIFICATION}
+            options={{ headerShown: false }}
+            component={Notification}
           />
         </Stack.Navigator>
       )}

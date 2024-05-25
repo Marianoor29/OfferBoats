@@ -8,8 +8,10 @@ export const Images = {
   user2: require('../images/user2.png'),
   payment: require('../images/payment.png'),
   setting: require('../images/Setting.png'),
+  logout: require('../images/logout.png'),
   postPicture: require('../images/postPicture.jpg'),
   logoHat: require('../images/logoHat.png'),
+  transaction: require('../images/transaction.png'),
 };
 
 export const google = require('../images/google.png');
@@ -21,5 +23,7 @@ export const user1 = require('../images/user1.png');
 export const user2 = require('../images/user2.png');
 export const payment = require('../images/payment.png');
 export const setting = require('../images/Setting.png');
+export const logout = require('../images/logout.png');
+export const transaction = require('../images/transaction.png');
 export const postPicture = require('../images/postPicture.jpg');
 export const logoHat = require('../images/logoHat.png');

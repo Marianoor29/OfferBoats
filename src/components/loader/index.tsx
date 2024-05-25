@@ -4,6 +4,7 @@ import styles from './styles';
 import ReactNativeModal from 'react-native-modal';
 import AppColors from '../../utils/AppColors';
 import { useAppSelector } from '../../redux/store/hook';
+import { width } from '../../utils/Dimension';
 
 const Loader = () => {
   const isLoader = useAppSelector(state => state.loader.setLoader);
@@ -17,7 +18,7 @@ const Loader = () => {
       isVisible={isLoader}
       backdropOpacity={0.4}>
       <View style={styles.container}>
-        <ActivityIndicator size="small" color={AppColors.white} />
+        <ActivityIndicator size={width(20)} color={AppColors.black} />
         <Text style={styles.text}>Loading</Text>
       </View>
     </ReactNativeModal>
