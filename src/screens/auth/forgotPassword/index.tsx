@@ -6,12 +6,12 @@ import { View } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {
   Button,
-  Header,
   InputField,
   LargeText,
   MediumText,
   ModalWrapper,
   ScreenWrapper,
+  SimpleHeader,
   SmallText
 } from '../../../components';
 import { ModalHandles } from '../../../components/modalWrapper';
@@ -43,14 +43,11 @@ const ForgotPassword = ({ navigation }: any) => {
   return (
     <ScreenWrapper
       scrollEnabled
-      headerUnScrollable={() => {
-        return (
-          <Header
-            onPressFirstIcon={() => navigation.goBack()}
-            firstIcon={<AntDesign name={'left'} size={width(5)} color={AppColors.blue} />}
-          />
-        )
-      }}>
+      headerUnScrollable={() => (
+        <SimpleHeader 
+        onPressFirstIcon={() => navigation.goBack()}
+        />
+      )}>
       <View style={styles.container}>
         <LargeText textStyles={CommonStyles.marginBottom_2}> Forgot Password?</LargeText>
         <SmallText textStyles={CommonStyles.marginBottom_2} size={3.4}>Enter The E-Mail Address Associated With Your Account.</SmallText>

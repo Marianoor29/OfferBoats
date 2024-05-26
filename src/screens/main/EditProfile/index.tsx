@@ -1,0 +1,205 @@
+import React, { useRef, useState } from 'react';
+import { Image, Pressable, TextInput, View } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {
+  Button,
+  Header,
+  InputField,
+  LargeText,
+  ScreenWrapper,
+  SimpleHeader
+} from '../../../components';
+import AppColors from '../../../utils/AppColors';
+import { width } from '../../../utils/Dimension';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import styles from './styles';
+import { userSchema } from '../../../utils/validationSchemas';
+import { useAppDispatch } from '../../../redux/store/hook';
+
+type FormValues = {
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: any,
+  ConfirmPassword: any,
+};
+const EditProfile = ({ navigation }: any) => {
+  const dispatch = useAppDispatch();
+  const passwordRef = useRef<TextInput>(null);
+  const confirmPasswordRef = useRef<TextInput>(null);
+  const lastNameRef = useRef<TextInput>(null);
+  const emailRef = useRef<TextInput>(null);
+  const [securePassword, setSecurePassword] = useState(true);
+  const [secureConfirmPassword, setSecureConfirmPassword] = useState(true);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormValues>({
+    mode: 'all',
+    defaultValues: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john@doe.com',
+      password: '12345678',
+      ConfirmPassword: '12345678',
+    },
+    resolver: yupResolver(userSchema),
+  });
+  return (
+    <ScreenWrapper
+      scrollEnabled
+      statusBarColor={AppColors.blue}
+      barStyle="light-content"
+      headerUnScrollable={() => (
+          <SimpleHeader 
+          onPressFirstIcon={() => navigation.goBack()}
+          emptyView={<LargeText size={4.5}>Edit your profile</LargeText>}
+          />
+      )}
+    >
+      <View style={styles.container}>
+        <View style={styles.ImagesView}>
+          <Image source={{uri : 'https://clubmahindra.gumlet.io/blog/media/section_images/summervaca-7c8772fe00929fa.jpg?w=376&dpr=2.6'}} 
+           style={styles.coverPhoto} />
+            <Pressable style={styles.cameraIconTopView}>
+           <FontAwesome
+              name={'camera'}
+              size={width(7)}
+              color={AppColors.white}
+            />
+           </Pressable>
+        <Image source={{uri : 'https://images.news18.com/ibnlive/uploads/2023/05/want-a-yummy-dip-for-sandwiches-try-this-easy-tomato-chutney-recipe-36-16848174013x2.png?impolicy=website&width=640&height=480'}} 
+           style={styles.userImage} />
+           <Pressable style={styles.cameraIconView}>
+           <FontAwesome
+              name={'camera'}
+              size={width(7)}
+              color={AppColors.white}
+            />
+           </Pressable>
+           </View>
+            <View style={styles.nameViewStyle}>
+            <View>
+            <InputField
+              title="First Name"
+              placeholder="Enter first name"
+              returnKeyLabel="next"
+              control={control}
+              name={'firstName'}
+              error={errors?.firstName?.message}
+              onSubmitEditing={() => lastNameRef?.current?.focus()}
+              containerStyle={styles.nameInputContainerStyle}
+              textinputStyle={styles.nameInputTextStyle}
+            />
+            </View>
+            <View>
+            <InputField
+              ref={lastNameRef}
+              title="Last Name"
+              placeholder="Enter last name"
+              returnKeyLabel="next"
+              control={control}
+              name={'lastName'}
+              error={errors?.lastName?.message}
+              onSubmitEditing={() => emailRef?.current?.focus()}
+              containerStyle={styles.nameInputContainerStyle}
+              textinputStyle={styles.nameInputTextStyle}
+            />
+            </View>
+          </View>
+        <InputField
+        ref={emailRef}
+        title='Email'
+          placeholder="Enter a Name"
+          control={control}
+          name={'email'}
+          keyboardType="email-address"
+            returnKeyLabel="next"
+            onSubmitEditing={() => passwordRef?.current?.focus()}
+          icon={
+            <AntDesign name={'user'} size={width(7)} color={AppColors.grey} />
+          }
+          error={errors?.email?.message}
+        />
+        <InputField
+        title='Password'
+        ref={passwordRef}
+          placeholder="• • • • • • • • • • • • • • •"
+          control={control}
+          name={'password'}
+          returnKeyLabel="next"
+          onSubmitEditing={() => confirmPasswordRef?.current?.focus()}
+          icon={
+            <MaterialCommunityIcons
+              name={'form-textbox-password'}
+              size={width(7)}
+              color={AppColors.grey}
+            />
+          }
+          error={errors?.password?.message}
+          secureTextEntry={securePassword}
+          rightSideIcon={
+            securePassword ? (
+              <MaterialCommunityIcons
+                name={'eye-outline'}
+                size={width(6)}
+                color={AppColors.grey}
+              />
+            ) : (
+              <MaterialCommunityIcons
+                name={'eye-off'}
+                size={width(6)}
+                color={AppColors.grey}
+              />
+            )
+          }
+          onPressRightIcon={() => setSecurePassword(!securePassword)}
+        />
+         <InputField
+         ref={confirmPasswordRef}
+        title='Confirm Password'
+          placeholder="• • • • • • • • • • • • • • •"
+          returnKeyLabel="done"
+          control={control}
+          name={'ConfirmPassword'}
+          icon={
+            <MaterialCommunityIcons
+              name={'form-textbox-password'}
+              size={width(7)}
+              color={AppColors.grey}
+            />
+          }
+          error={errors?.ConfirmPassword?.message}
+          secureTextEntry={secureConfirmPassword}
+          rightSideIcon={
+            secureConfirmPassword ? (
+              <MaterialCommunityIcons
+                name={'eye-outline'}
+                size={width(6)}
+                color={AppColors.grey}
+              />
+            ) : (
+              <MaterialCommunityIcons
+                name={'eye-off'}
+                size={width(6)}
+                color={AppColors.grey}
+              />
+            )
+          }
+          onPressRightIcon={() => setSecureConfirmPassword(!secureConfirmPassword)}
+        />
+          <Button
+          onPress={() => navigation.goBack()}
+          text={'Submit'}
+          disabled={!isValid}
+        />
+      </View>
+    </ScreenWrapper>
+  );
+};
+
+export default EditProfile;

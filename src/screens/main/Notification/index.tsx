@@ -1,28 +1,12 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import LottieView from 'lottie-react-native';
-import React, { useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import { FlatList, View } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {
-  Button,
-  Gallery,
-  Header,
-  InputField,
-  LargeText,
-  MediumText,
-  ModalWrapper,
   NotificationBar,
   ScreenWrapper,
-  SmallText
+  SimpleHeader
 } from '../../../components';
-import { ModalHandles } from '../../../components/modalWrapper';
-import AppColors from '../../../utils/AppColors';
-import CommonStyles from '../../../utils/CommonStyles';
-import { width } from '../../../utils/Dimension';
-import { ForgotPasswordSchema } from '../../../utils/validationSchemas';
-import styles from './styles';
 import { GallertList } from '../../../utils/DummyData';
+import styles from './styles';
 type FormValues = {
   email: string,
 };
@@ -40,14 +24,11 @@ const Notification = ({ navigation }: any) => {
   return (
     <ScreenWrapper
       scrollEnabled
-      headerUnScrollable={() => {
-        return (
-          <Header
-            onPressFirstIcon={() => navigation.goBack()}
-            firstIcon={<AntDesign name={'left'} size={width(5)} color={AppColors.blue} />}
-          />
-        )
-      }}>
+      headerUnScrollable={() => (
+        <SimpleHeader 
+        onPressFirstIcon={() => navigation.goBack()}
+        />
+      )}>
       <View style={styles.container}>
       <FlatList
           data={GallertList}

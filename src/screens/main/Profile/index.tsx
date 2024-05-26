@@ -68,6 +68,7 @@ const Profile = ({ navigation }: any) => {
        email= 'maria@email.com'
        completedTrips= '10'
        rating= {3.4}
+       onPress={() => navigation.navigate(ScreenNames.EDITPROFILE)}
        />
     
        {ScreenRowList.map((item, key) => {

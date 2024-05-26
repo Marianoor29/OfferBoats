@@ -8,6 +8,7 @@ export { default as SocialButton } from './socialButton';
 export { default as Loader } from './loader';
 export { default as Gallery } from './gallery';
 export { default as HeaderTab } from './headerTab';
+export { default as SimpleHeader } from './simpleHeader';
 export { default as TripOrders } from './tripHistoryCard';
 export { default as TopProductCard } from './topProductCard';
 export { default as ProfileHeader } from './profileHeader';

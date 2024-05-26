@@ -7,7 +7,7 @@ import { ForgotPassword, Login, SignUp } from '../screens/auth';
 import { useAppSelector } from '../redux/store/hook';
 import { Loader } from '../components';
 import SplashScreen from 'react-native-splash-screen'
-import { Notification } from '../screens/main';
+import { EditProfile, Notification } from '../screens/main';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +53,11 @@ const MainNavigation = () => {
             name={ScreenNames.NOTIFICATION}
             options={{ headerShown: false }}
             component={Notification}
+          />
+            <Stack.Screen
+            name={ScreenNames.EDITPROFILE}
+            options={{ headerShown: false }}
+            component={EditProfile}
           />
         </Stack.Navigator>
       )}

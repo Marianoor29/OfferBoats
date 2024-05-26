@@ -18,7 +18,7 @@ type profileInfoProps = {
   rating: number;
   email?: string,
   completedTrips?: string,
-  onPressFirstIcon2?: () => void,
+  onPress?: () => void,
 };
 const profileInfo = ({
   coverImage,
@@ -29,6 +29,7 @@ const profileInfo = ({
   rating,
   email,
   completedTrips,
+  onPress = () => null,
 
 }: profileInfoProps) => {
 
@@ -68,6 +69,7 @@ const profileInfo = ({
               text="Edit Profile"
               buttonStyle={styles.editButtonStyle}
               textStyle={styles.editButtonText}
+              onPress={onPress}
             />
           </View>
         </View>

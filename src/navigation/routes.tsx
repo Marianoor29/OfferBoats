@@ -5,6 +5,7 @@ const ScreenNames = {
   SIGNUP: 'SignUp',
   FORGOTPASSWORD: 'ForgotPassword',
   PROFILE: 'Profile',
+  EDITPROFILE: 'EditProfile',
   OFFERS: 'Offers',
   HOMEBASE: 'HomeBase',
   NOTIFICATION: 'Notification',
