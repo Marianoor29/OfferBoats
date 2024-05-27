@@ -16,7 +16,21 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         elevation: 5,
     },
-    numberOfItemsStyle: {
+    bottomView:{
+        width:width(30),
+        flexDirection:'row',
+        justifyContent:'flex-start',
+    },
+    price: {
+        width:width(15),
+        fontSize: width(3),
+        color: AppColors.grey,
+        marginTop: height(0.3),
+        marginBottom: height(1),
+        marginLeft: width(2)
+    },
+    duration: {
+        width:width(15),
         fontSize: width(3),
         color: AppColors.grey,
         marginTop: height(0.3),
@@ -26,11 +40,16 @@ const styles = StyleSheet.create({
     posterImage: {
         height: width(40),
         width: width(90),
-        borderTopLeftRadius:width(1),
-        borderTopRightRadius:width(1)
+        borderTopLeftRadius:width(2),
+        borderTopRightRadius:width(2)
     },
-    categoryNameStyle: {
-        width:width(60),
+    boatOwnerImage: {
+        height: width(8),
+        width: width(8),
+       borderRadius:width(30)
+    },
+    titleStyle: {
+        width:width(50),
         color: AppColors.black,
         fontSize: width(4),
         paddingHorizontal: width(2),
@@ -38,16 +57,23 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: height(1)
     },
-    btnStyle: {
+    descriptionStyle: {
+        width:width(50),
+        color: AppColors.black,
+        fontSize: width(3),
+        paddingHorizontal: width(2),
+        alignSelf: 'flex-start',
+    },
+    membersbtnStyle: {
         backgroundColor: AppColors.blackShadow,
         paddingVertical: height(0.8),
         paddingHorizontal:width(2),
         borderRadius: width(8),
         position:'absolute',
-        bottom:height(8),
+        bottom:height(10),
         right:width(5)
     },
-    btnTextStyle: {
+    membersbtnTextStyle: {
         fontSize: width(3),
         color: AppColors.white
     },

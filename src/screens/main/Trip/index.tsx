@@ -67,8 +67,6 @@ const Trip = ({ navigation }: any) => {
   return (
     <ScreenWrapper
       scrollEnabled
-      statusBarColor={AppColors.blue}
-      barStyle="light-content"
       headerUnScrollable={() => (
         <Header
           source={logo}

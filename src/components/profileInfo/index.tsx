@@ -17,7 +17,8 @@ type profileInfoProps = {
   lastName?: string,
   rating: number;
   email?: string,
-  completedTrips?: string,
+  address?: string,
+  completedTrips?: number,
   onPress?: () => void,
 };
 const profileInfo = ({
@@ -28,7 +29,8 @@ const profileInfo = ({
   lastName,
   rating,
   email,
-  completedTrips,
+  address,
+  completedTrips = 0,
   onPress = () => null,
 
 }: profileInfoProps) => {
@@ -43,13 +45,13 @@ const profileInfo = ({
   const renderStars = () => {
     const stars: JSX.Element[] = [];
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<Icon key={`full-${i}`} name="star" size={width(4)} color={AppColors.starYellow} />);
+      stars.push(<Icon key={`full-${i}`} name="star" size={width(5)} color={AppColors.starYellow} />);
     }
     if (halfStar) {
-      stars.push(<Icon key="half" name="star" size={width(4)} color={AppColors.starYellow} />);
+      stars.push(<Icon key="half" name="star" size={width(5)} color={AppColors.starYellow} />);
     }
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<Icon key={`empty-${i}`} name="star-o" size={width(4)} color={AppColors.starYellow} />);
+      stars.push(<Icon key={`empty-${i}`} name="star-o" size={width(5)} color={AppColors.starYellow} />);
     }
     return stars;
   };  
@@ -78,13 +80,14 @@ const profileInfo = ({
             <Text style={styles.nameStyle} numberOfLines={1}>
               {firstName} {lastName}
             </Text>
-            <Text style={styles.emailStyle}>{email}</Text>
+            <Text style={styles.emailStyle} numberOfLines={1}>{email}</Text>
+            <Text style={styles.emailStyle} numberOfLines={1}>{address}</Text>
           </View>
           <View>
           <LargeText size={3} numberOfLines={1} textStyles={styles.tripText}>{completedTrips} Trips Completed</LargeText>
           <View style={styles.Ratingcontainer}>
       <View style={styles.starsContainer}>{renderStars()}</View>
-      <SmallText textStyles={styles.ratingText}>Rating: {rating}</SmallText>
+      <SmallText textStyles={styles.ratingText}>Ratings: {rating}</SmallText>
     </View>
           {/* <View style={styles.Ratingcontainer}>
       <Rating

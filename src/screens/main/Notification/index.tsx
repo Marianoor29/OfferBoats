@@ -1,12 +1,14 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, Pressable, View } from 'react-native';
 import {
+  MediumText,
   NotificationBar,
   ScreenWrapper,
   SimpleHeader
 } from '../../../components';
 import { GallertList } from '../../../utils/DummyData';
 import styles from './styles';
+import AppColors from '../../../utils/AppColors';
 type FormValues = {
   email: string,
 };
@@ -38,6 +40,9 @@ const Notification = ({ navigation }: any) => {
           scrollEnabled={false}
           // contentContainerStyle={styles.productContainer}
         />
+        <Pressable>
+          <MediumText color={AppColors.grey}>Clear All</MediumText>
+          </Pressable>
       </View>
     </ScreenWrapper>
   );

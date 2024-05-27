@@ -1,7 +1,7 @@
 import { View, Text, TextInput } from 'react-native';
 import React, { useRef, useState } from 'react';
 import styles from './styles';
-import { Button, Header, InputField, LargeText, ScreenWrapper, SmallText } from '../../../components';
+import { Button, Header, InputField, LargeText, ScreenWrapper, SimpleHeader, SmallText } from '../../../components';
 import AppColors from '../../../utils/AppColors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -61,23 +61,9 @@ const SignUp = ({ navigation }: any) => {
       scrollEnabled
       headerUnScrollable={() => {
         return (
-          <Header
-            onPressFirstIcon={() => navigation.goBack()}
-            firstIcon={<AntDesign name={'left'} size={width(5)} color={AppColors.blue} />}
-          />
-        )
-      }}
-      footerUnScrollable={() => {
-        return(
-          <View style={styles.footerStyle}>
-        <SmallText> Already have an account</SmallText>
-        <Button
-          onPress={() => navigation.navigate(ScreenNames.LOGIN)}
-          text={'Login'}
-          buttonStyle={styles.signUpButtonStyle}
-          textStyle={{ color: AppColors.grey }}
+          <SimpleHeader 
+        onPressFirstIcon={() => navigation.goBack()}
         />
-          </View>
         )
       }}
       >
@@ -198,7 +184,15 @@ const SignUp = ({ navigation }: any) => {
           text={'Register'}
           disabled={!isValid}
         />
-        
+         <View style={styles.footerStyle}>
+        <SmallText> Already have an account</SmallText>
+        <Button
+          onPress={() => navigation.navigate(ScreenNames.LOGIN)}
+          text={'Login'}
+          buttonStyle={styles.signUpButtonStyle}
+          textStyle={{ color: AppColors.grey }}
+        />
+          </View>
       </View>
     </ScreenWrapper>
   );

@@ -133,35 +133,43 @@ export const orderData = [
 
 export const offersList =[
   {
-    key:1,
     source:'https://tripbeam.com/blog/wp-content/uploads/2015/11/fiji.jpg',
+    boatOwnerImage: 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1746',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     title:'Dream Vacation spots on Earth',
-    price:'1000',
-    members: "10 - 15 members",
-    duration: "4 Hours"
+    price:1000,
+    members: 10,
+    duration: 4,
+    address: 'London, England, United Kingdom'
   },
   {
-    key:2,
     source:'https://www.tripsavvy.com/thmb/MlAVE9PdAhhO3gXTaivg5Ty9GYI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Statue-liberty-56b008a15f9b58b7d01f9e4e.jpg',
+    boatOwnerImage: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D',
     title:'Top Vacation Destinations on the U.S. East Coast',
-    price:'1200',
-    members: "10 - 20 members",
-    duration: "6 Hours"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    price:1200,
+    members: 20,
+    duration: 6,
+    address: 'Birmingham, England, United Kingdom'
   },
   {
-    key:3,
     source:'https://i0.wp.com/readymadetravelplans.com/wp-content/uploads/Summer-Family-Vacation-Places.jpeg?resize=1024%2C682&ssl=1',
+    boatOwnerImage: 'https://images.ctfassets.net/lh3zuq09vnm2/yBDals8aU8RWtb0xLnPkI/19b391bda8f43e16e64d40b55561e5cd/How_tracking_user_behavior_on_your_website_can_improve_customer_experience.png',
     title:'Family Summer Vacation Places in the U.S.',
-    price:'1500',
-    members: "20 - 25 members",
-    duration: "7 Hours"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    price:1500,
+    members: 23,
+    duration: 7 ,
+    address: 'Coventry, England, United Kingdom'
   },
   {
-    key:4,
     source:'https://travelsouth.visittheusa.com/sites/default/files/styles/16_9_470x264/public/2016-10/1%20HERO_Paddleboard%20Lake%20Springfield_Web72DPI_1.jpg?itok=t97wS-VH',
+    boatOwnerImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&s',
     title:'Travel South USA: Southeastern USA Vacations ',
-    price:'800',
-    members: "30 - 34 members",
-    duration: "2 Hours"
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    price:800,
+    members: 40,
+    duration: 2,
+    address: 'Rugby, England, United Kingdom'
   },
 ]

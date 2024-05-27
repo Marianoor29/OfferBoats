@@ -4,8 +4,8 @@ import { height, width } from "../../utils/Dimension";
 
 const styles = StyleSheet.create({
   container: {
-      width:width(90),
-      // paddingHorizontal:width(5),
+      width:width(94),
+      paddingHorizontal:width(5),
       paddingVertical:height(1),
       alignItems:'center',
       flexDirection:'row',

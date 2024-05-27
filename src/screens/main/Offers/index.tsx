@@ -1,39 +1,37 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import { logo } from '../../../assets/images';
 import {
-  Button,
   Header,
-  LargeText,
   ScreenWrapper,
-  TopProductCard
+  OfferCard
 } from '../../../components';
+import ScreenNames from '../../../navigation/routes';
 import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
-import styles from './styles';
 import { offersList } from '../../../utils/DummyData';
-import ScreenNames from '../../../navigation/routes';
+import styles from './styles';
 
 const Offers = ({ navigation }: any) => {
   const renderOfferItem = ({ item }: any) => {
     return (
-      <TopProductCard 
+      <OfferCard 
       source={item.source}
+      boatOwnerImage={item.boatOwnerImage}
       title={item.title}
+      description={item.description}
       price={item.price}
       duration={item.duration}
       members={item.members}
       backgroundColor={item.backgroundColor}
+      onPress={() => navigation.navigate('OfferDetails', { offer: item })}
    />
     )
   }
   return (
     <ScreenWrapper
       scrollEnabled
-      statusBarColor={AppColors.blue}
-      barStyle="light-content"
       headerUnScrollable={() => (
         <Header
           source={logo}

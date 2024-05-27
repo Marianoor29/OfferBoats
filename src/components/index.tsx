@@ -10,10 +10,12 @@ export { default as Gallery } from './gallery';
 export { default as HeaderTab } from './headerTab';
 export { default as SimpleHeader } from './simpleHeader';
 export { default as TripOrders } from './tripHistoryCard';
-export { default as TopProductCard } from './topProductCard';
+export { default as OfferCard } from './offerCard';
 export { default as ProfileHeader } from './profileHeader';
 export { default as ScreenRow } from './screenRow';
 export { default as ProfileInfo } from './profileInfo';
 export { default as SwitchButtonRow } from './switchButton';
 export { default as NotificationBar } from './notificationBar';
+export { default as DropDownMenu } from './dropDownMenu';
+export { default as FilePickerModal } from './filePickerModal';
 export {LargeText,MediumText,SmallText,UnderLineText} from './text'

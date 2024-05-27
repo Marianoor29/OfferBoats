@@ -7,6 +7,7 @@ const ScreenNames = {
   PROFILE: 'Profile',
   EDITPROFILE: 'EditProfile',
   OFFERS: 'Offers',
+  OFFERDETAILS: 'OfferDetails',
   HOMEBASE: 'HomeBase',
   NOTIFICATION: 'Notification',
 };

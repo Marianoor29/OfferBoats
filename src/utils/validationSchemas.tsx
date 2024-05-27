@@ -35,3 +35,35 @@ export const ForgotPasswordSchema = yup.object().shape({
     .required('Email is required')
     .email('Email format is invalid.'),
 });
+
+export const EditUserProfileSchema = yup.object().shape({
+  firstName: yup.string().
+  required("FirstName is required"),
+  lastName: yup.string().
+  required("LastName is required"),
+  email: yup
+    .string()
+    .required('Email is required')
+    .email('Email format is invalid.'),
+    address: yup.string().
+    required("Address is required"),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(6, 'Password should be atleast 6 characters long'),
+  ConfirmPassword: yup
+    .string()
+    .required('Password is required')
+    .oneOf([yup.ref('password')], 'Password must match'),
+});
+
+export const userOfferSchema = yup.object().shape({
+  price: yup.number().
+  required("Price is required"),
+  member: yup.number().
+  required("Members is required"),
+  duration: yup.number().
+  required("Duration is required"),
+  description: yup
+    .string()
+});

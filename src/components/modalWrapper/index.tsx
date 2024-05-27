@@ -13,7 +13,6 @@ export interface ModalHandles {
 }
 type props = {
   onClose?: () => void
-  text?: string
   innerContainerStyles?: object
   onPressBtn?: () => void
   btnTitle?: string
@@ -24,7 +23,6 @@ type props = {
 const ModalWrapper = (
   {
     onClose = () => null,
-    text = "Add Card Details",
     innerContainerStyles= {},
     onPressBtn=()=>null,
     btnTitle= "Save",

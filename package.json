@@ -29,6 +29,7 @@
     "react-hook-form": "^7.51.3",
     "react-native": "0.73.1",
     "react-native-gesture-handler": "^2.14.0",
+    "react-native-image-crop-picker": "^0.41.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-modal": "^13.0.1",
     "react-native-pager-view": "^6.2.3",

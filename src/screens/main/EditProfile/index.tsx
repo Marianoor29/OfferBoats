@@ -7,7 +7,8 @@ import {
   InputField,
   LargeText,
   ScreenWrapper,
-  SimpleHeader
+  SimpleHeader,
+  FilePickerModal
 } from '../../../components';
 import AppColors from '../../../utils/AppColors';
 import { width } from '../../../utils/Dimension';
@@ -16,13 +17,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import styles from './styles';
-import { userSchema } from '../../../utils/validationSchemas';
+import { EditUserProfileSchema, userSchema } from '../../../utils/validationSchemas';
 import { useAppDispatch } from '../../../redux/store/hook';
+import { FilePickerModalRef } from '../../../components/filePickerModal';
+
 
 type FormValues = {
   firstName: string,
   lastName: string,
   email: string,
+  address: string,
   password: any,
   ConfirmPassword: any,
 };
@@ -32,6 +36,7 @@ const EditProfile = ({ navigation }: any) => {
   const confirmPasswordRef = useRef<TextInput>(null);
   const lastNameRef = useRef<TextInput>(null);
   const emailRef = useRef<TextInput>(null);
+  const addressRef = useRef<TextInput>(null);
   const [securePassword, setSecurePassword] = useState(true);
   const [secureConfirmPassword, setSecureConfirmPassword] = useState(true);
   const {
@@ -44,16 +49,19 @@ const EditProfile = ({ navigation }: any) => {
       firstName: 'John',
       lastName: 'Doe',
       email: 'john@doe.com',
+      address: 'john@doe.com',
       password: '12345678',
       ConfirmPassword: '12345678',
     },
-    resolver: yupResolver(userSchema),
+    resolver: yupResolver(EditUserProfileSchema),
   });
+  const showProfileModal = useRef<FilePickerModalRef>()
+  const showCoverModal = useRef<FilePickerModalRef>();
+  const [profImage, setProfImage] = useState('https://images.news18.com/ibnlive/uploads/2023/05/want-a-yummy-dip-for-sandwiches-try-this-easy-tomato-chutney-recipe-36-16848174013x2.png?impolicy=website&width=640&height=480');
+  const [coverImage, setCoverImage] = useState('https://clubmahindra.gumlet.io/blog/media/section_images/summervaca-7c8772fe00929fa.jpg?w=376&dpr=2.6');
   return (
     <ScreenWrapper
       scrollEnabled
-      statusBarColor={AppColors.blue}
-      barStyle="light-content"
       headerUnScrollable={() => (
           <SimpleHeader 
           onPressFirstIcon={() => navigation.goBack()}
@@ -63,24 +71,32 @@ const EditProfile = ({ navigation }: any) => {
     >
       <View style={styles.container}>
         <View style={styles.ImagesView}>
-          <Image source={{uri : 'https://clubmahindra.gumlet.io/blog/media/section_images/summervaca-7c8772fe00929fa.jpg?w=376&dpr=2.6'}} 
+          <Image source={{uri : coverImage && coverImage }} 
            style={styles.coverPhoto} />
-            <Pressable style={styles.cameraIconTopView}>
+            <Pressable style={styles.cameraIconTopView} onPress={()=>showCoverModal?.current?.show()}>
            <FontAwesome
               name={'camera'}
               size={width(7)}
               color={AppColors.white}
             />
            </Pressable>
-        <Image source={{uri : 'https://images.news18.com/ibnlive/uploads/2023/05/want-a-yummy-dip-for-sandwiches-try-this-easy-tomato-chutney-recipe-36-16848174013x2.png?impolicy=website&width=640&height=480'}} 
+           <FilePickerModal
+      ref={showCoverModal}
+      onFilesSelected={(k)=>  setCoverImage(k.path)}
+      />
+        <Image source={{uri : profImage && profImage }} 
            style={styles.userImage} />
-           <Pressable style={styles.cameraIconView}>
+           <Pressable style={styles.cameraIconView} onPress={()=>showProfileModal?.current?.show()}>
            <FontAwesome
               name={'camera'}
               size={width(7)}
               color={AppColors.white}
             />
            </Pressable>
+           <FilePickerModal
+      ref={showProfileModal}
+      onFilesSelected={(k)=> setProfImage(k.path)}
+      />
            </View>
             <View style={styles.nameViewStyle}>
             <View>
@@ -119,11 +135,24 @@ const EditProfile = ({ navigation }: any) => {
           name={'email'}
           keyboardType="email-address"
             returnKeyLabel="next"
-            onSubmitEditing={() => passwordRef?.current?.focus()}
+            onSubmitEditing={() => addressRef?.current?.focus()}
           icon={
             <AntDesign name={'user'} size={width(7)} color={AppColors.grey} />
           }
           error={errors?.email?.message}
+        />  
+        <InputField
+        ref={addressRef}
+        title='Address'
+          placeholder="Enter a Address"
+          control={control}
+          name={'address'}
+            returnKeyLabel="next"
+            onSubmitEditing={() => passwordRef?.current?.focus()}
+          icon={
+            <AntDesign name={'user'} size={width(7)} color={AppColors.grey} />
+          }
+          error={errors?.address?.message}
         />
         <InputField
         title='Password'
