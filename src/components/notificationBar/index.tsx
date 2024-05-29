@@ -10,20 +10,26 @@ export interface ModalHandles {
 }
 type props = {
   onPress?: () => void
+  source?: string
+  title?: string
+  caption?: string
  }
 const NotificationBar = (
   {
     onPress = () => null,
+    source,
+    title,
+    caption,
   }: props,
   ref: React.Ref<ModalHandles>
 ) => {
 
   return (
     <Pressable style={styles.container} onPress={onPress}>
-      <Image source={logoHat} style={styles.ImageStyle}/>
-      <View>
-      <LargeText size={3.3} numberOfLines={1}>Content for the notifications will be added here the notifications will be added here</LargeText>
-      <SmallText size={2.8}>Content for the notifications will be added here</SmallText>
+      <Image source={{uri: source}} style={styles.ImageStyle}/>
+      <View style={styles.titleView}>
+      <LargeText size={3.3} numberOfLines={1}>{title}</LargeText>
+      <SmallText size={2.8} numberOfLines={2}>{caption}</SmallText>
       </View>
     </Pressable>
   );

@@ -10,6 +10,9 @@ const ScreenNames = {
   OFFERDETAILS: 'OfferDetails',
   HOMEBASE: 'HomeBase',
   NOTIFICATION: 'Notification',
+  PAYMENT: 'Payment',
+  TRANSACTION: 'Transaction',
+  SETTING: 'Setting',
 };
 
 export default ScreenNames;

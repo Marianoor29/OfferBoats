@@ -11,7 +11,9 @@ export const Images = {
   logout: require('../images/logout.png'),
   postPicture: require('../images/postPicture.jpg'),
   logoHat: require('../images/logoHat.png'),
+  master: require('../images/master.png'),
   transaction: require('../images/transaction.png'),
+  visa: require('../images/visa.png'),
 };
 
 export const google = require('../images/google.png');
@@ -27,3 +29,5 @@ export const logout = require('../images/logout.png');
 export const transaction = require('../images/transaction.png');
 export const postPicture = require('../images/postPicture.jpg');
 export const logoHat = require('../images/logoHat.png');
+export const master = require('../images/master.png');
+export const visa = require('../images/visa.png');

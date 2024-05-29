@@ -5,18 +5,19 @@ import styles from "./styles";
 type textProps = {
     screenName?: string,
     source?: any,
-    onPress?: () => void
+    onPress?: ()=>void,
 }
 
 const ScreenRow = ({
     source,
     screenName,
-    onPress= () => null
+    onPress =()=>null,
 }: textProps) => {
     return (
         <Pressable style={styles.container} onPress={onPress}>
             <View style={styles.imageContainer}>
-                <Image source={source} style={styles.userImage}/>
+                {/* <Image source={source} style={styles.userImage}/> */}
+                {source}
             </View>
             <Text style={styles.screenName} numberOfLines={1}>{screenName}</Text>
         </Pressable>

@@ -11,10 +11,11 @@ import  Button  from "../button";
 import { width } from "../../utils/Dimension";
 
 type TripOrdersProps = {
-  image: ImageSourcePropType;
+  image: string;
   serviceName?: string;
   serviceDesc?: string;
   address?: string;
+  title?: string;
   date?: string;
   onPressDecline?: () => void;
   containerStyles?: StyleProp<ViewStyle>;
@@ -49,8 +50,8 @@ const AddressRow = ({ icon, text, containerStyle }: AddressRowProps) => {
 const TripOrders = ({
   image,
   serviceName,
-  serviceDesc,
   address,
+  title,
   date,
   onPressDecline,
   containerStyles,
@@ -89,7 +90,7 @@ const TripOrders = ({
     >
       <View style={styles.infoContainer}>
         <View style={styles.innerView}>
-          <Image source={image} style={styles.image} resizeMode={"cover"} />
+          <Image source={{uri:image}} style={styles.image} resizeMode={"cover"} />
           <View >
             {serviceName && (
               <MediumText
@@ -122,9 +123,16 @@ const TripOrders = ({
           </MediumText>
         )}
       </View>
-      {address && (
+      {title && (
         <AddressRow
           containerStyle={CommonStyles.marginTop_2}
+          icon={<Ionicons name="trail-sign-sharp" size={width(5)} color={AppColors.black} />}
+          text={title}
+        />
+      )}
+           {address && (
+        <AddressRow
+          containerStyle={CommonStyles.marginTop_1}
           icon={<Ionicons name="location-sharp" size={width(5)} color={AppColors.black} />}
           text={address}
         />

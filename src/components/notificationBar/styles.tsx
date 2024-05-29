@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
       height:width(8),
       borderRadius:width(20),
       marginRight:width(3)
+    },
+    titleView:{
+      width:width(74),
     }
 
   

@@ -3,11 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MyTabs from './bottom';
 import ScreenNames from './routes';
-import { ForgotPassword, Login, SignUp } from '../screens/auth';
+import { ForgotPassword, Login, SignUp } from '../screens/Users/auth';
 import { useAppSelector } from '../redux/store/hook';
 import { Loader } from '../components';
 import SplashScreen from 'react-native-splash-screen'
-import { EditProfile, Notification, OfferDetails } from '../screens/main';
+import { EditProfile, Notification, OfferDetails, Payment, Setting, Transaction } from '../screens/Users/main';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +63,21 @@ const MainNavigation = () => {
             name={ScreenNames.OFFERDETAILS}
             options={{ headerShown: false }}
             component={OfferDetails}
+          />
+            <Stack.Screen
+            name={ScreenNames.PAYMENT}
+            options={{ headerShown: false }}
+            component={Payment}
+          />
+            <Stack.Screen
+            name={ScreenNames.TRANSACTION}
+            options={{ headerShown: false }}
+            component={Transaction}
+          />
+            <Stack.Screen
+            name={ScreenNames.SETTING}
+            options={{ headerShown: false }}
+            component={Setting}
           />
         </Stack.Navigator>
       )}

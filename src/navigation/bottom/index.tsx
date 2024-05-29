@@ -4,7 +4,7 @@ import { Image, Text, View } from 'react-native';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { default as Icon, default as Ionicons } from 'react-native-vector-icons/Ionicons';
 import { user } from '../../assets/images';
-import { Profile, Home, Offers, Trip } from '../../screens/main';
+import { Profile, Home, Offers, Trip } from '../../screens/Users/main';
 import AppColors from '../../utils/AppColors';
 import { width } from '../../utils/Dimension';
 import ScreenNames from '../routes';
@@ -83,7 +83,7 @@ export default function MyTabs({ navigation }: any) {
                   ]}
                 />
                   <Image
-                  source={user}
+                  source={{uri : 'https://images.news18.com/ibnlive/uploads/2023/05/want-a-yummy-dip-for-sandwiches-try-this-easy-tomato-chutney-recipe-36-16848174013x2.png?impolicy=website&width=640&height=480'}}
                   style={[
                     styles.userImageStyle,
                     { opacity: focused ? 1 : 0.5 },

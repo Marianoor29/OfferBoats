@@ -67,3 +67,19 @@ export const userOfferSchema = yup.object().shape({
   description: yup
     .string()
 });
+
+export  const PaymentCardSchema = yup.object().shape({
+  name: yup.string().required("Card Holder's is required"),
+  cardNumber: yup
+    .string()
+    .required("Card Number is required")
+    .min(16, "Card Number must be at least 16 characters long")
+    .max(16, "Card Number must be at most 16 characters long"),
+  expiryDate: yup
+    .string()
+    .required("Expiry date is required")
+    .min(4, "Expiry Date must be at least 4 characters long")
+    .max(4, "Expiry Date must be at most 4 characters long"),
+  cvc: yup.string().min(3).max(4).required("Cvc is required"),
+});
+

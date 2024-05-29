@@ -25,17 +25,20 @@ type inputProps = {
   iconStyle?: object,
   containerStyle?: object,
   textinputStyle?: object,
+  errorView?: object,
   onPressRightIcon?: () => void,
   onSubmitEditing?: () => void,
+  onChangeText?: (text: string) => void, // Add onChangeText prop
 };
 
-const InputField = React.forwardRef(
+const InputField = React.forwardRef<TextInput, inputProps>(
   (
     {
       placeholder,
       titleStyle = {},
       containerStyle = {},
       textinputStyle = {},
+      errorView = {},
       placeholderTextColor = AppColors.grey,
       rightSideIcon,
       control,
@@ -52,8 +55,9 @@ const InputField = React.forwardRef(
       numberOfLines = 1,
       onPressRightIcon = () => null,
       onSubmitEditing = () => null,
+      onChangeText, // Add onChangeText prop
     }: inputProps,
-    ref: any,
+    ref,
   ) => {
     return (
       <>
@@ -72,7 +76,7 @@ const InputField = React.forwardRef(
                     style={styles.input}
                     secureTextEntry={secureTextEntry}
                     numberOfLines={numberOfLines}
-                    ref={ref}
+                    ref={ref} // Forward ref to the TextInput
                     multiline={multiline}
                     keyboardType={keyboardType}
                     onPressIn={onPressIn}
@@ -91,7 +95,7 @@ const InputField = React.forwardRef(
             </TouchableOpacity>
           )}
         </View>
-        <View style={styles.errorView}>
+        <View style={[styles.errorView, errorView]}>
           <Text style={styles.errorText}>{error ? error : null}</Text>
         </View>
       </>
