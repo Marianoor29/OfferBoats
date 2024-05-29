@@ -14,19 +14,17 @@ export interface ModalHandles {
 type props = {
   onClose?: () => void
   innerContainerStyles?: object
-  onPressBtn?: () => void
-  btnTitle?: string
   modalMainContainer?: object,
+  modalContainer?: object,
   isColor?: boolean,
   children?: ReactNode;
- }
+}
 const ModalWrapper = (
   {
     onClose = () => null,
-    innerContainerStyles= {},
-    onPressBtn=()=>null,
-    btnTitle= "Save",
-    modalMainContainer= {},
+    innerContainerStyles = {},
+    modalMainContainer = {},
+    modalContainer = {},
     isColor = true,
     children = '',
   }: props,
@@ -45,7 +43,7 @@ const ModalWrapper = (
   return (
     <Modal
       isVisible={visible}
-      style={styles.modalContainer}
+      style={[styles.modalContainer, modalContainer]}
       onBackdropPress={onClose}
       onBackButtonPress={onClose}
       avoidKeyboard={true}
@@ -54,26 +52,22 @@ const ModalWrapper = (
       backdropColor={isColor ? 'black' : 'transparent'}
       animationInTiming={500}
       animationOutTiming={600}
-      backdropOpacity={0.1}
+      backdropOpacity={0.2}
     >
-     <View style={[styles.modalInnerContainer, innerContainerStyles]}>
+      <View style={[styles.modalInnerContainer, innerContainerStyles]}>
         <View style={styles.modalHeaderView}>
           <TouchableOpacity
-          style={styles.topView}
+            style={styles.topView}
             activeOpacity={0.6}
             onPress={() => setVisible(false)}
           >
-           <AntDesign name='close' size={width(5)} color={AppColors.grey} />
+            <AntDesign name='close' size={width(5)} color={AppColors.grey} />
           </TouchableOpacity>
-     <View style={[styles.modalMainView,modalMainContainer]}>
-      {children}
-      </View>
-        <Button
-          text={btnTitle}
-          buttonStyle={styles.button}
-          onPress={onPressBtn}
-        />
-      </View>
+          <View style={[styles.modalMainView, modalMainContainer]}>
+            {children}
+          </View>
+
+        </View>
       </View>
     </Modal>
   );

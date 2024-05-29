@@ -28,7 +28,7 @@ type inputProps = {
   errorView?: object,
   onPressRightIcon?: () => void,
   onSubmitEditing?: () => void,
-  onChangeText?: (text: string) => void, // Add onChangeText prop
+  onChangeText?: (text: string) => void, 
 };
 
 const InputField = React.forwardRef<TextInput, inputProps>(
@@ -55,7 +55,7 @@ const InputField = React.forwardRef<TextInput, inputProps>(
       numberOfLines = 1,
       onPressRightIcon = () => null,
       onSubmitEditing = () => null,
-      onChangeText, // Add onChangeText prop
+      onChangeText,
     }: inputProps,
     ref,
   ) => {
@@ -65,18 +65,20 @@ const InputField = React.forwardRef<TextInput, inputProps>(
           <View>
             <Text style={[styles.titleStyle, titleStyle]}>{title}</Text>
             <View style={[styles.container, textinputStyle]}>
-              <Controller
+            <Controller
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
                     value={value}
-                    onChangeText={onChange}
+                    onChangeText={(text) => {
+                      onChangeText ? onChangeText(text) : onChange(text);
+                    }}
                     placeholder={placeholder}
                     placeholderTextColor={placeholderTextColor}
                     style={styles.input}
                     secureTextEntry={secureTextEntry}
                     numberOfLines={numberOfLines}
-                    ref={ref} // Forward ref to the TextInput
+                    ref={ref} 
                     multiline={multiline}
                     keyboardType={keyboardType}
                     onPressIn={onPressIn}

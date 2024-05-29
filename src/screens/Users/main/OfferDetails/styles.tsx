@@ -73,5 +73,15 @@ export default StyleSheet.create({
   },
   modalHeading:{
     marginBottom:height(2)
+  },
+  buttonsView:{
+    width:width(90),
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginVertical:height(1)
+  },
+  modalButtonStyle:{
+    width:width(40),
+    paddingVertical:height(0.7)
   }
 });

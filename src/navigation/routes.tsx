@@ -12,6 +12,7 @@ const ScreenNames = {
   NOTIFICATION: 'Notification',
   PAYMENT: 'Payment',
   TRANSACTION: 'Transaction',
+  TRANSACTIONDETAILS: 'TransactionDetails',
   SETTING: 'Setting',
 };
 

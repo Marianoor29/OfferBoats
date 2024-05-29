@@ -72,17 +72,19 @@ const ForgotPassword = ({ navigation }: any) => {
         <ModalWrapper
           ref={modalRef}
           onClose={() => modalRef?.current?.hide()}
-          // containerStyle={styles.modalContainerStyle}
-          onPressBtn={() => {
-            modalRef?.current?.hide()
-            setTimeout(() => {
-              navigation.goBack()
-            }, 600);
-          }}
           children={
             <>
               <LottieView source={require('../../../../assets/gif/tick.json')} style={styles.animatedImageStyle} autoPlay loop={false} />
-              <MediumText textAlign="center" >Password reset link sent {'\n'} to your email</MediumText>
+              <MediumText textAlign="center" textStyles={CommonStyles.marginBottom_2} >Password reset link sent {'\n'} to your email</MediumText>
+              <Button
+              text='CONTINUE'
+              onPress={() => {
+                modalRef?.current?.hide()
+                setTimeout(() => {
+                  navigation.goBack()
+                }, 600);
+              }}
+            />
             </>
           }
         />

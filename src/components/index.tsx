@@ -19,4 +19,5 @@ export { default as NotificationBar } from './notificationBar';
 export { default as DropDownMenu } from './dropDownMenu';
 export { default as FilePickerModal } from './filePickerModal';
 export { default as CreditCard } from './creditCard';
+export { default as TransactionRow } from './transactionRow';
 export {LargeText,MediumText,SmallText,UnderLineText} from './text'

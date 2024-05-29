@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: AppColors.yellow,
     width: width(80),
     alignItems: 'center',
-    paddingVertical: height(2),
+    paddingVertical: height(1.6),
     borderRadius: width(2),
   },
   text: {

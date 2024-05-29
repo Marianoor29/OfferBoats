@@ -10,7 +10,7 @@ interface Card {
 
 interface InitialState {
   cardArray: Card[];
-  selectedCard: Card | null;
+  selectedCard: number | null;
 }
 
 // Initialize the state with type InitialState
@@ -39,14 +39,22 @@ export const paymentCardSlice = createSlice({
     addCard: (state, action: PayloadAction<Card>) => {
       state.cardArray.push(action.payload);
     },
-    setSelectedCard: (state, action: PayloadAction<Card | null>) => {
-      state.selectedCard = action.payload;
+    setSelectedCard: (state, action: PayloadAction<number | null>) => {
+      state.selectedCard = state.selectedCard === action.payload ? null : action.payload;
     },
     deleteCard: (state, action: PayloadAction<number>) => {
       state.cardArray.splice(action.payload, 1);
+      // If the deleted card was the selected card, unselect it
+      if (state.selectedCard === action.payload) {
+        state.selectedCard = null;
+      } else if (state.selectedCard !== null && state.selectedCard > action.payload) {
+        // Adjust the selectedCard index if a card before the selected one is deleted
+        state.selectedCard -= 1;
+      }
     },
   },
 });
+
 
 export const { addCard, setSelectedCard, deleteCard } = paymentCardSlice.actions;
 export const cardData = (state: { Cards: InitialState }) => state.Cards.cardArray;

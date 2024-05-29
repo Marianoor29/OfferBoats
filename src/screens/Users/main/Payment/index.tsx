@@ -11,7 +11,6 @@ import AddCardModal, { AddCardModalHandles, FormValues } from '../../../../compo
 import CommonStyles from '../../../../utils/CommonStyles';
 import { cardData, deleteCard, getSelectedCard, setSelectedCard, addCard } from '../../../../redux/slice/paymentCard/paymentCardSlice';
 import { useAppDispatch, useAppSelector } from '../../../../redux/store/hook';
-import { height } from '../../../../utils/Dimension';
 import { setAppLoader } from '../../../../redux/slice/config/loaderSlice';
 
 const Payment = ({ navigation }: any) => {
@@ -46,7 +45,7 @@ const Payment = ({ navigation }: any) => {
         CardHolderName={item.name}
         cardNumber={item.cardNumber}
         selected={index === selectedCard}
-        onPress={() => dispatch(setSelectedCard(index))}
+        onPress={() => dispatch(setSelectedCard(index === selectedCard ? null : index))}
         onPressDelete={() => onPressDeleteMethod(index)}
       />
     );
@@ -64,9 +63,8 @@ const Payment = ({ navigation }: any) => {
       <FlatList
             data={Cards}
             keyExtractor={(_, index) => index.toString()} 
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            style={{ flexGrow: 0, marginTop: height(3) }}
+            showsVerticalScrollIndicator={false}
+            scrollEnabled={false}
             renderItem={renderItem}
           />
       <AddCardModal 

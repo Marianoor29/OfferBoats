@@ -7,4 +7,5 @@ export { default as OfferDetails } from './OfferDetails';
 export { default as Notification } from './Notification';
 export { default as Payment } from './Payment';
 export { default as Transaction } from './Transaction';
+export { default as TransactionDetails } from './TransactionDetails';
 export { default as Setting } from './Setting';

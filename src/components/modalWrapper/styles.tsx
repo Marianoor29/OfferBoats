@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     modalInnerContainer: {
       backgroundColor: AppColors.white,
       elevation: 5,
-      borderRadius: width(6),
+      borderRadius: width(2),
       paddingVertical: height(1),
       alignItems: "center",
       justifyContent: "center",

@@ -26,6 +26,7 @@ type FormValues = {
 const OfferDetails = ({ navigation, route }: any) => {
   const { offer } = route.params;
   const modalRef = useRef<ModalHandles>(null);
+  const modalAcceptOfferRef = useRef<ModalHandles>(null);
   const memberRef = useRef<TextInput>(null);
   const durationRef = useRef<TextInput>(null);
   const descriptionRef = useRef<TextInput>(null);
@@ -67,6 +68,7 @@ const OfferDetails = ({ navigation, route }: any) => {
             text={'Accept Offer'}
             buttonStyle={styles.acceptBtnStyle}
             textStyle={styles.btnTextStyle}
+            onPress={() =>  modalAcceptOfferRef?.current?.show()}
           />
           <Button
             text={'Send Custom Offer'}
@@ -131,6 +133,45 @@ const OfferDetails = ({ navigation, route }: any) => {
                 error={errors?.description?.message}
                 numberOfLines={4}
               />
+            </>
+          }
+        />
+         <ModalWrapper
+          ref={modalAcceptOfferRef}
+          onClose={() => modalAcceptOfferRef?.current?.hide()}
+          btnTitle='Submit'
+          // onPressBtn={() => {
+          //   modalAcceptOfferRef?.current?.hide()
+          //   setTimeout(() => {
+          //     navigation.goBack()
+          //   }, 600);
+          // }}
+          modalContainer={{justifyContent: "center"}}
+          children={
+            <>
+              <LargeText size={4.6} textStyles={styles.modalHeading}>are you sure you want to accept offer</LargeText>
+              <View style={styles.buttonsView}>
+              <Button
+              text='Yes'
+              buttonStyle={styles.modalButtonStyle}
+              onPress={() => {
+                modalRef?.current?.hide()
+                setTimeout(() => {
+                  navigation.goBack()
+                }, 600);
+              }}
+            />
+             <Button
+              text='No'
+              buttonStyle={styles.modalButtonStyle}
+              onPress={() => {
+                modalRef?.current?.hide()
+                setTimeout(() => {
+                  navigation.goBack()
+                }, 600);
+              }}
+            />
+            </View>
             </>
           }
         />

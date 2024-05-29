@@ -35,7 +35,7 @@ const CreditCard = ({
         <View style={styles.row}>
           <Text style={[styles.ccText]}>
             ####{"   "}####{"   "}####{"   "}
-            {cardNumber?.slice(12, 16)}
+            {cardNumber?.slice(21, 25)}
           </Text>
         </View>
         <View style={styles.row}>

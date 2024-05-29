@@ -16,12 +16,13 @@ import InputField from "../inputField";
 export interface AddCardModalHandles {
   show: () => void;
   hide: () => void;
+  resetForm: () => void;
 }
 
 export type FormValues = {
   name: string,
-  cardNumber: string, // Change to string
-  expiryDate: string, // Change to string
+  cardNumber: string, 
+  expiryDate: string,
   cvc: string,
 }
 type props = {
@@ -30,7 +31,7 @@ type props = {
  }
 const AddCardModal = ({
   onClose = () => null,
-  onSubmit = () => null, // Default onSubmit function
+  onSubmit = () => null, 
 }: props,
 ref: React.Ref<AddCardModalHandles>
 ) => {
@@ -41,39 +42,35 @@ ref: React.Ref<AddCardModalHandles>
 
   useImperativeHandle(ref, () => ({
     show: () => {
+      resetForm(); // Reset form fields when modal is shown
       setVisible(true);
     },
     hide: () => {
       setVisible(false);
     },
+    resetForm, // Expose resetForm method
   }));
 
   const {
     control,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     mode: "all",
-    defaultValues: {
-      name: "",
-      cardNumber: "",
-      expiryDate: "",
-      cvc: "",
-    },
     resolver: yupResolver(PaymentCardSchema),
   });
 
-  const formatCardNumber = (value: string) => {
-    const numericValue = value.replace(/\D/g, "");
-    const formattedValue = numericValue.replace(/(.{4})/g, "$1-").slice(0, -1);
-    return formattedValue;
+  const resetForm = () => {
+    reset({ name: '', cardNumber: '', expiryDate: '', cvc: '' });
   };
-
-  const formatExpiryDate = (value: string) => {
-    const numericValue = value.replace(/\D/g, "");
-    const formattedValue = numericValue.replace(/(.{2})/g, "$1/").slice(0, -1);
-    return formattedValue;
+  const formatCardNumber = (text: string) => {
+    return text.replace(/\W/gi, '').replace(/(.{4})/g, '$1 - ').trim().slice(0, 25);
+  };
+  
+  const formatExpiryDate = (text: string) => {
+    return text.replace(/\D/g, '').replace(/(\d{2})(\d{2})/, '$1 / $2').slice(0, 7);
   };
 
   return (
@@ -118,10 +115,7 @@ ref: React.Ref<AddCardModalHandles>
           keyboardType="numeric"
           returnKeyLabel="next"
           onSubmitEditing={() => expiryDateRef?.current?.focus()}
-          onChangeText={(value: string) => {
-            const formattedValue = formatCardNumber(value);
-            setValue("cardNumber", formattedValue);
-          }}
+          onChangeText={(text) => setValue('cardNumber', formatCardNumber(text))}
         />
         <View style={styles.bottomView}>
           <View>
@@ -138,10 +132,7 @@ ref: React.Ref<AddCardModalHandles>
             containerStyle={styles.nameInputContainerStyle}
             textinputStyle={styles.nameInputTextStyle}
             errorView={styles.errorView}
-            onChangeText={(value: string) => {
-              const formattedValue = formatExpiryDate(value);
-              setValue("expiryDate", formattedValue);
-            }}
+            onChangeText={(text) => setValue('expiryDate', formatExpiryDate(text))}
           />
           </View>
           <View>

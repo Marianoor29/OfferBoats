@@ -4,15 +4,18 @@ import AppColors from "../../utils/AppColors";
 
 const styles = StyleSheet.create({
   lg: {
-    height: height(23),
-    width: width(85.5),
-    borderRadius: width(4.5),
-    marginBottom: height(1.7),
-    backgroundColor:AppColors.cornflowerblue,
-    justifyContent:'center'
+    height: height(16),
+    width: width(96),
+    borderRadius: width(2),
+    marginBottom: height(1),
+    backgroundColor:AppColors.inputWhite,
+    justifyContent:'center',
+    borderWidth:width(0.1),
+    borderColor:AppColors.blackShadow,
+    marginHorizontal:width(2)
   },
   cardSelectedStyle:{
-    backgroundColor:AppColors.cornflowerblue + 50,
+    backgroundColor:AppColors.yellow + 50,
   },
   cc: {
     height: height(16),
@@ -28,26 +31,26 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontSize: width(3.8),
-    color: AppColors.white,
+    color: AppColors.black,
     fontWeight:'bold'
   },
   ccText: {
     fontSize: width(3.8),
-    color: AppColors.white,
+    color: AppColors.black,
     marginTop: height(0.3),
   },
   cardNumberText: {
     fontSize: width(5),
-    color: AppColors.white,
+    color: AppColors.black,
     marginTop: height(0.3),
   },
   expiryText: {
     fontSize: width(2.4),
-    color: AppColors.white + 95,
+    color: AppColors.black + 95,
   },
   dateText: {
     fontSize: width(3.3),
-    color: AppColors.white,
+    color: AppColors.black,
     marginTop: height(0.4),
   },
   innerRow: {
