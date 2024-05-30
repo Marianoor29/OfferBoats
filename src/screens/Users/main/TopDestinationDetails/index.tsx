@@ -1,19 +1,16 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import Octicons from 'react-native-vector-icons/Octicons';
-import { logo } from '../../../../assets/images';
 import {
-  Header,
+  LargeText,
+  OfferCard,
   ScreenWrapper,
-  OfferCard
+  SimpleHeader
 } from '../../../../components';
-import ScreenNames from '../../../../navigation/routes';
-import AppColors from '../../../../utils/AppColors';
-import { width } from '../../../../utils/Dimension';
-import { offersList } from '../../../../utils/DummyData';
 import styles from './styles';
+import { offersList } from '../../../../utils/DummyData';
 
-const Offers = ({ navigation }: any) => {
+const TopDestinationDetails = ({ navigation, route }: any) => {
+  const { TopDestination } = route.params;
   const renderOfferItem = ({ item }: any) => {
     return (
       <OfferCard 
@@ -33,12 +30,9 @@ const Offers = ({ navigation }: any) => {
     <ScreenWrapper
       scrollEnabled
       headerUnScrollable={() => (
-        <Header
-          source={logo}
-          firstIcon={
-            <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
-          }
-          onPressFirstIcon2={() => navigation.navigate(ScreenNames.NOTIFICATION)}
+        <SimpleHeader 
+        onPressFirstIcon={() => navigation.goBack()}
+        emptyView={<LargeText size={4.8} textAlign={'center'}>Top destinatios in {TopDestination.title}</LargeText>}
         />
       )}>
       <View style={styles.container}>
@@ -48,12 +42,10 @@ const Offers = ({ navigation }: any) => {
               keyExtractor={(item, index) => String(index)}
               showsVerticalScrollIndicator={true}
               scrollEnabled={false}
-              // contentContainerStyle={styles.statusRawContainer}
             />
-      
-        </View>
+      </View>
     </ScreenWrapper>
   );
 };
 
-export default Offers;
+export default TopDestinationDetails;

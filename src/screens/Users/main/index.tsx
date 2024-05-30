@@ -8,4 +8,6 @@ export { default as Notification } from './Notification';
 export { default as Payment } from './Payment';
 export { default as Transaction } from './Transaction';
 export { default as TransactionDetails } from './TransactionDetails';
+export { default as TopDestinationDetails } from './TopDestinationDetails';
+export { default as FullFeatureList } from './FullFeatureList';
 export { default as Setting } from './Setting';

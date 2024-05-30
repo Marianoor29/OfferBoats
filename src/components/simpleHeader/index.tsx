@@ -10,6 +10,8 @@ type SimpleHeaderProps = {
   firstIcon?: any,
   emptyView?: any,
   RightIcon?: any,
+  iconView?: object,
+  arrowColor?:string,
   onPressFirstIcon?: () => void,
   onPressRightIcon?: () => void,
 };
@@ -17,13 +19,15 @@ const SimpleHeader = ({
   container,
   emptyView,
   RightIcon,
+  iconView,
+  arrowColor=AppColors.yellow,
   onPressFirstIcon = () => null,
   onPressRightIcon = () => null,
 }: SimpleHeaderProps) => {
   return (
     <View style={[styles.container, container]}>
-      <Pressable onPress={onPressFirstIcon} style={styles.iconView}>
-      <AntDesign name="arrowleft" size={width(5)} color={AppColors.yellow} />
+      <Pressable onPress={onPressFirstIcon} style={[styles.iconView, iconView]}>
+      <AntDesign name="arrowleft" size={width(5)} color={arrowColor} />
       </Pressable>
       <View style={styles.emptyView}>
         {emptyView}

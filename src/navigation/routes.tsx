@@ -13,6 +13,8 @@ const ScreenNames = {
   PAYMENT: 'Payment',
   TRANSACTION: 'Transaction',
   TRANSACTIONDETAILS: 'TransactionDetails',
+  TOPDESTINATIONDETAILS: 'TopDestinationDetails',
+  FULLFEATURELIST: 'FullFeatureList',
   SETTING: 'Setting',
 };
 

@@ -2,7 +2,7 @@ const AppColors = {
   white: '#ffffff',
   black: '#000',
   red: 'red',
-  blue: '#0a151f',
+  blue: '#00bfff',
   yellow:'#f4a024' ,
   transparent: 'transparent',
   azure: '#f2f2f2',
@@ -16,6 +16,7 @@ const AppColors = {
   blackShadow: '#00000050',
   green: '#006400',
   seaGreen: '#8fbc8f',
-  starYellow: '#ffd700'
+  starYellow: '#ffd700',
+  yellowShadow:'#edb96d'
 };
 export default AppColors;

@@ -1,8 +1,9 @@
 import React from "react";
 import { Image, Pressable, Text, View } from 'react-native';
-import CommonStyles from "../../utils/CommonStyles";
+import Carousel from 'react-native-reanimated-carousel';
 import { LargeText, SmallText } from "../text";
 import styles from "./styles";
+import { width } from "../../utils/Dimension";
 
 type textProps = {
     title?: string,
@@ -13,7 +14,8 @@ type textProps = {
     members?: number,
     duration?: number,
     onPress?: () => void,
-    description?: string
+    description?: string,
+    images: string[]
 
 }
 
@@ -25,11 +27,19 @@ const OfferCard = ({
     members,
     duration,
     description,
+    images,
     onPress = () => null
 }: textProps) => {
     return (
         <View style={styles.container}>
-             <Image source={{uri: source}} style={styles.posterImage}/>
+             <Carousel
+      width={width(94)}
+      height={width(50)}
+      data={images}
+      renderItem={({ item }) => (
+          <Image source={{ uri: item }} style={styles.slide} />
+       )}  loop autoPlay autoPlayInterval={3000}/>
+            {/* //  <Image source={{uri: source}} style={styles.posterImage}/> */}
              <Pressable style={styles.membersbtnStyle}>
                 <SmallText textStyles={styles.membersbtnTextStyle}>{members} members</SmallText>
              </Pressable>

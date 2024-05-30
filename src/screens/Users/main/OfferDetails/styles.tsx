@@ -3,12 +3,30 @@ import AppColors from '../../../../utils/AppColors';
 import { height, width } from '../../../../utils/Dimension';
 
 export default StyleSheet.create({
-  SafeAreaView: { flex: 1, backgroundColor: AppColors.white },
+  headerContainer: {
+    backgroundColor: AppColors.transparent,
+    position: "absolute",
+    zIndex: 1000,
+    shadowColor: AppColors.transparent,
+    width: '100%',
+    top: 0,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: AppColors.white,
+    backgroundColor: AppColors.transparent,
+  },
+  headerIconView:{
+    width: width(8),
+    height:width(8),
+    backgroundColor:AppColors.blackShadow,
+    borderRadius:width(20),
+    alignItems:'center',
+    justifyContent:'center',
+    marginTop:height(3),
+    marginLeft:width(3)
+
   },
   innerContainer: {
     flexDirection: 'row',
@@ -17,13 +35,13 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom:height(1),
-    backgroundColor: AppColors.azure,
-    paddingVertical:height(1.5)
+    paddingVertical:height(1.5),
   },
   image: {
-    width: width(100),
+    width: '100%',
     height: height(30),
     resizeMode: 'cover',
+    backgroundColor: AppColors.transparent,
   },
   boatOwnerImage: {
     alignSelf:'flex-start',
@@ -32,36 +50,27 @@ export default StyleSheet.create({
     borderRadius: width(30)
   },
   addressAndTitleView:{
-       width:width(56),
+       width:width(80),
   },
   title: {
-    // backgroundColor:'green',
-    width:width(46),
-    marginHorizontal:width(2)
+    width:width(80),
   },
-  rightTopView:{
-    alignSelf:'flex-start',
-    width:width(26),
-  },
-  description:{
+  descriptionView:{
     width:width(90),
-  },
-  smallText: {
-    fontWeight:'bold',
-    color:AppColors.yellow,
-    fontSize:width(3.4)
+    marginVertical:height(2)
   },
   lineView:{
     width:width(90),
     backgroundColor:AppColors.grey,
-    height:height(0.1),
-    marginVertical:height(1)
+    height:width(0.1),
+    marginVertical:height(3)
   },
   bottomView:{
     width:width(90),
     flexDirection:'row',
     justifyContent:'space-between',
-    marginVertical:height(2)
+    marginVertical:height(2),
+    alignSelf:'center'
   },
   acceptBtnStyle:{
     width:width(40),
@@ -75,13 +84,32 @@ export default StyleSheet.create({
     marginBottom:height(2)
   },
   buttonsView:{
-    width:width(90),
+    width:width(65),
     flexDirection:'row',
     justifyContent:'space-between',
     marginVertical:height(1)
   },
   modalButtonStyle:{
-    width:width(40),
+    width:width(30),
     paddingVertical:height(0.7)
+  },
+  acceptofferModal:{
+    justifyContent:'center',
+    width:width(78),
+    alignSelf:'center'
+  },
+  readMoreText:{
+    color:AppColors.yellow,
+    width:width(90)
+  },
+  featuresView:{
+    width:width(90),
+    flexDirection:'row',
+    justifyContent:'space-between',
+    paddingVertical:height(1)
+  },
+  headingStyle:{
+    width:width(90),
+    marginBottom:height(1)
   }
 });

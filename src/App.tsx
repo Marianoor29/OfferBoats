@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import  'react-native-reanimated';
 import React from 'react';
 import MainNavigation from './navigation/navigation';
 import { Provider } from 'react-redux';

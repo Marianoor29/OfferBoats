@@ -5,7 +5,7 @@ import AppColors from "../../utils/AppColors";
 const styles = StyleSheet.create({
     container: {
         backgroundColor: AppColors.white,
-        width: width(90),
+        width: width(94),
         marginHorizontal: width(1),
         marginBottom: height(1.4),
         borderRadius: width(2),
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
         marginBottom: height(1),
         marginLeft: width(2)
     },
-    posterImage: {
-        height: width(40),
-        width: width(90),
+    slide: {
+        height: width(50),
+        width: width(94),
         borderTopLeftRadius:width(2),
         borderTopRightRadius:width(2)
     },

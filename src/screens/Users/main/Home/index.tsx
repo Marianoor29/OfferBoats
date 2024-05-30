@@ -7,12 +7,13 @@ import {
   Gallery,
   Header,
   LargeText,
-  ScreenWrapper
+  ScreenWrapper,
+  TopDestinationCard
 } from '../../../../components';
 import AppColors from '../../../../utils/AppColors';
 import { width } from '../../../../utils/Dimension';
 import styles from './styles';
-import { GallertList } from '../../../../utils/DummyData';
+import { GallertList, TopDestinationList } from '../../../../utils/DummyData';
 import ScreenNames from '../../../../navigation/routes';
 
 const Home = ({ navigation }: any) => {
@@ -23,6 +24,15 @@ const Home = ({ navigation }: any) => {
         title={item.title}
         caption={item.caption}
       />
+    );
+  };
+  const renderTopDestinationItems = ({ item }: any) => {
+    return (
+    <TopDestinationCard
+    title={item.title}
+    source={item.source}
+    onPress={() => navigation.navigate('TopDestinationDetails', { TopDestination: item })}
+    />
     );
   };
   return (
@@ -38,7 +48,17 @@ const Home = ({ navigation }: any) => {
         />
       )}>
       <View style={styles.container}>
-        <LargeText size={5}>Ideas for your next trip</LargeText>
+      <LargeText size={4} textStyles={styles.headingStyle}>Top destinatios</LargeText>
+      <FlatList
+          data={TopDestinationList}
+          renderItem={renderTopDestinationItems}
+          keyExtractor={(item, index) => String(index)}
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          contentContainerStyle={styles.productContainer}
+        />
+
+        <LargeText size={4} textStyles={styles.headingStyle}>Ideas for your next trip</LargeText>
         <FlatList
           data={GallertList}
           renderItem={renderGalleryItems}

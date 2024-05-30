@@ -14,7 +14,7 @@ import AppColors from '../../utils/AppColors';
 type wrapperProps = {
   children?: any,
   statusBarColor?: string,
-  transclucent?: boolean,
+  translucent?: boolean,
   scrollEnabled?: boolean,
   backgroundImage?: any,
   backgroundColor?: string,
@@ -22,10 +22,11 @@ type wrapperProps = {
   footerUnScrollable?: () => void,
   barStyle?: StatusBarStyle,
 };
+
 const ScreenWrapper = ({
   children,
   statusBarColor = AppColors.white,
-  transclucent = false,
+  translucent = false, 
   scrollEnabled = false,
   backgroundImage,
   backgroundColor = AppColors.white,
@@ -33,21 +34,26 @@ const ScreenWrapper = ({
   footerUnScrollable = () => null,
   barStyle = 'dark-content',
 }: wrapperProps) => {
-  function FocusAwareStatusBar({ props }: { props: wrapperProps }) {
+  function FocusAwareStatusBar({ barStyle, backgroundColor, translucent  }: { barStyle: StatusBarStyle, backgroundColor: string, translucent : boolean }) {
     const isFocused = useIsFocused();
-    return isFocused ? <StatusBar {...props} /> : null;
+    return isFocused ? (
+      <StatusBar
+        barStyle={barStyle}
+        backgroundColor={backgroundColor}
+        translucent={translucent} 
+      />
+    ) : null;
   }
+
   const content = () => {
     return (
       <View style={[styles.container, { backgroundColor: backgroundColor }]}>
         <FocusAwareStatusBar
-          props={{
-            barStyle: barStyle,
-            backgroundColor: statusBarColor,
-            transclucent: transclucent,
-          }}
+          barStyle={barStyle}
+          backgroundColor={statusBarColor}
+          translucent={translucent}
         />
-        {!transclucent && (
+        {!translucent && (
           <SafeAreaView
             style={(styles.container, { backgroundColor: statusBarColor })}
           />
@@ -68,6 +74,7 @@ const ScreenWrapper = ({
       </View>
     );
   };
+
   return backgroundImage ? (
     <ImageBackground
       source={backgroundImage}

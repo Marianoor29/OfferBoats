@@ -7,7 +7,7 @@ import { ForgotPassword, Login, SignUp } from '../screens/Users/auth';
 import { useAppSelector } from '../redux/store/hook';
 import { Loader } from '../components';
 import SplashScreen from 'react-native-splash-screen'
-import { EditProfile, Notification, OfferDetails, Payment, Setting, Transaction, TransactionDetails } from '../screens/Users/main';
+import { EditProfile, FullFeatureList, Notification, OfferDetails, Payment, Setting, TopDestinationDetails, Transaction, TransactionDetails } from '../screens/Users/main';
 
 const Stack = createNativeStackNavigator();
 
@@ -83,6 +83,16 @@ const MainNavigation = () => {
             name={ScreenNames.TRANSACTIONDETAILS}
             options={{ headerShown: false }}
             component={TransactionDetails}
+          />
+            <Stack.Screen
+            name={ScreenNames.TOPDESTINATIONDETAILS}
+            options={{ headerShown: false }}
+            component={TopDestinationDetails}
+          />
+            <Stack.Screen
+            name={ScreenNames.FULLFEATURELIST}
+            options={{ headerShown: false }}
+            component={FullFeatureList}
           />
         </Stack.Navigator>
       )}
