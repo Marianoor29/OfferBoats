@@ -430,7 +430,7 @@ export const ReviewList = [
       reviewerImage: "https://sm.askmen.com/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.jpg",
       rating: 4.5,
       reviewDate: "2024-04-15",
-      reviewText: "The boat trip was fantastic! The boat was clean and well-maintained, and the staff was friendly and accommodating. Highly recommend!"
+      reviewText: "The boat trip was fantastic! The boat was clean and well-maintained, and the staff was friendly and accommodating. Highly recommend! The boat trip was fantastic! The boat was clean and well-maintained, and the staff was friendly and accommodating. Highly recommend!"
     },
     {
       reviewerName: "Jane Smith",

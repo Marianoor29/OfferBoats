@@ -1,51 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FlatList, Image, ImageBackground, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, ImageBackground, Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import Feather from 'react-native-vector-icons/Feather';
-import {
-  Button,
-  DropDown,
-  InputField,
-  LargeText,
-  MediumText,
-  ModalWrapper,
-  OfferDetailCard,
-  ReviewBox,
-  ScreenWrapper,
-  SimpleHeader
-} from '../../../../components';
+import { Button, DropDown, InputField, LargeText, MediumText, ModalWrapper, OfferDetailCard, ReviewBox, ScreenWrapper, SimpleHeader, SmallText } from '../../../../components';
 import { ModalHandles } from '../../../../components/modalWrapper';
+import ScreenNames from '../../../../navigation/routes';
 import AppColors from '../../../../utils/AppColors';
 import { width } from '../../../../utils/Dimension';
 import { ReviewList } from '../../../../utils/DummyData';
 import { userOfferSchema } from '../../../../utils/validationSchemas';
 import styles from './styles';
 
-type FormValues = {
-  price: number,
-  member: number,
-  duration: number,
-  description?: string,
-};
-
 const OfferDetails = ({ navigation, route }: any) => {
   const { offer } = route.params;
-  const modalRef = useRef<ModalHandles>(null);
-  const modalAcceptOfferRef = useRef<ModalHandles>(null);
-  const memberRef = useRef<TextInput>(null);
-  const durationRef = useRef<TextInput>(null);
-  const descriptionRef = useRef<TextInput>(null);
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<FormValues>({
-    mode: 'all',
-    resolver: yupResolver(userOfferSchema),
-  });
   const [dropdown, setDropdown] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const toggleDescription = () => {
@@ -79,17 +48,14 @@ const OfferDetails = ({ navigation, route }: any) => {
       }}
       footerUnScrollable={() => (
         <View style={styles.bottomView}>
+          <SmallText color={AppColors.grey} size={3.4}>
+            Send your detail to the {'\n'}owner to plan your trip.
+          </SmallText>
         <Button
-          text={'Accept Offer'}
+          text={'Book Now'}
           buttonStyle={styles.acceptBtnStyle}
           textStyle={styles.btnTextStyle}
-          onPress={() =>  modalAcceptOfferRef?.current?.show()}
-        />
-        <Button
-          text={'Send Custom Offer'}
-          buttonStyle={styles.acceptBtnStyle}
-          textStyle={styles.btnTextStyle}
-          onPress={() => modalRef?.current?.show()}
+          onPress={() => navigation.navigate(ScreenNames.SENDOFFER)}
         />
       </View>
       )}
@@ -140,7 +106,12 @@ const OfferDetails = ({ navigation, route }: any) => {
           </View>
         ))}
          <View style={styles.lineView}></View>
-         <LargeText size={4.6} textStyles={styles.headingStyle}>Reviews</LargeText>
+         <View style={styles.reviewHeadingView}>
+         <LargeText size={4.6} >Reviews</LargeText>
+         <Pressable onPress={() => navigation.navigate(ScreenNames.REVIEWS)}>
+         <LargeText size={3} >View all</LargeText>
+         </Pressable>
+         </View>
          <FlatList
           data={ReviewList}
           renderItem={renderReviewList}
@@ -168,99 +139,7 @@ const OfferDetails = ({ navigation, route }: any) => {
             <LargeText size={4} textStyles={styles.readMoreText}>View all</LargeText>
           </TouchableOpacity>
         )}
-        <ModalWrapper
-          ref={modalRef}
-          onClose={() => modalRef?.current?.hide()}
-          children={
-            <>
-              <LargeText size={4.6} textStyles={styles.modalHeading}>Create a custom offer</LargeText>
-              <InputField
-                title='Price'
-                placeholder="Please write your budget"
-                control={control}
-                name={'price'}
-                keyboardType="numeric"
-                returnKeyLabel="next"
-                onSubmitEditing={() => memberRef?.current?.focus()}
-                error={errors?.price?.message}
-              />
-               <InputField
-               ref={memberRef}
-                title='Member'
-                placeholder="Enter a number of members"
-                control={control}
-                name={'member'}
-                keyboardType="numeric"
-                returnKeyLabel="next"
-                onSubmitEditing={() => durationRef?.current?.focus()}
-                error={errors?.member?.message}
-              />
-               <InputField
-               ref={durationRef}
-                title='Duration'
-                placeholder="Enter hours"
-                control={control}
-                name={'duration'}
-                keyboardType="numeric"
-                returnKeyLabel="next"
-                onSubmitEditing={() => descriptionRef?.current?.focus()}
-                error={errors?.duration?.message}
-              />
-               <InputField
-               ref={durationRef}
-                title='Description (Optional)'
-                multiline
-                control={control}
-                name={'description'}
-                keyboardType="default"
-                returnKeyLabel="done"
-                error={errors?.description?.message}
-                numberOfLines={4}
-              />
-              <Button
-              text={'Submit'}
-              onPress={() => {
-                modalRef?.current?.hide()
-                setTimeout(() => {
-                  navigation.goBack()
-                }, 600);
-              }}
-              />
-            </>
-          }
-        />
-         <ModalWrapper
-          ref={modalAcceptOfferRef}
-          onClose={() => modalAcceptOfferRef?.current?.hide()}
-          modalContainer={styles.acceptofferModal}
-          children={
-            <>
-              <LargeText size={4.6} textStyles={styles.modalHeading} textAlign={'center'}>are you sure you {`\n`} want to accept offer</LargeText>
-              <View style={styles.buttonsView}>
-              <Button
-              text='Yes'
-              buttonStyle={styles.modalButtonStyle}
-              onPress={() => {
-                modalRef?.current?.hide()
-                setTimeout(() => {
-                  navigation.goBack()
-                }, 600);
-              }}
-            />
-             <Button
-              text='No'
-              buttonStyle={styles.modalButtonStyle}
-              onPress={() => {
-                modalRef?.current?.hide()
-                setTimeout(() => {
-                  navigation.goBack()
-                }, 600);
-              }}
-            />
-            </View>
-            </>
-          }
-        />
+     
       </View>
     </ScreenWrapper>
   );

@@ -10,12 +10,11 @@ const styles = StyleSheet.create({
     marginBottom: height(1),
     backgroundColor:AppColors.inputWhite,
     justifyContent:'center',
-    borderWidth:width(0.1),
-    borderColor:AppColors.blackShadow,
     marginHorizontal:width(2)
   },
   cardSelectedStyle:{
-    backgroundColor:AppColors.yellow + 50,
+    borderWidth:width(0.2),
+    borderColor:AppColors.yellow,
   },
   cc: {
     height: height(16),

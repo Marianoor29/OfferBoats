@@ -65,7 +65,7 @@ const EditProfile = ({ navigation }: any) => {
       headerUnScrollable={() => (
           <SimpleHeader 
           onPressFirstIcon={() => navigation.goBack()}
-          emptyView={<LargeText size={4.5}>Edit your profile</LargeText>}
+          emptyView={<LargeText size={4}>Edit your profile</LargeText>}
           />
       )}
     >

@@ -10,4 +10,7 @@ export { default as Transaction } from './Transaction';
 export { default as TransactionDetails } from './TransactionDetails';
 export { default as TopDestinationDetails } from './TopDestinationDetails';
 export { default as FullFeatureList } from './FullFeatureList';
+export { default as Search } from './Search';
 export { default as Setting } from './Setting';
+export { default as Reviews } from './Reviews';
+export { default as SendOffer } from './SendOffer';

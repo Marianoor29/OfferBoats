@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   tabBarStyle: {
     height: Platform.OS === 'ios' ? height(7) : height(8),
     backgroundColor: AppColors.yellowShadow ,
-    borderTopWidth: width(0.3),
   },
   tabItemsStyle: {
     alignItems: 'center',

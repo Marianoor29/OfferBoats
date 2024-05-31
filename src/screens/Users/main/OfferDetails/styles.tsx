@@ -73,7 +73,7 @@ export default StyleSheet.create({
     alignSelf:'center'
   },
   acceptBtnStyle:{
-    width:width(40),
+    width:width(45),
     paddingVertical:height(1),
     borderRadius:width(2)
   },
@@ -111,5 +111,12 @@ export default StyleSheet.create({
   headingStyle:{
     width:width(90),
     marginBottom:height(1)
+  },
+  reviewHeadingView:{
+    width:width(90),
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginBottom:height(2),
+    alignItems:'center'
   }
 });

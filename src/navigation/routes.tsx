@@ -16,6 +16,9 @@ const ScreenNames = {
   TOPDESTINATIONDETAILS: 'TopDestinationDetails',
   FULLFEATURELIST: 'FullFeatureList',
   SETTING: 'Setting',
+  SEARCH: 'Search',
+  REVIEWS: 'Reviews',
+  SENDOFFER: 'SendOffer',
 };
 
 export default ScreenNames;

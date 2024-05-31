@@ -17,7 +17,7 @@ const TransactionDetails = ({ navigation, route }: any) => {
       headerUnScrollable={() => (
         <SimpleHeader 
         onPressFirstIcon={() => navigation.goBack()}
-        emptyView={<LargeText size={4.8} >Transaction details</LargeText>}
+        emptyView={<LargeText size={4} >Transaction details</LargeText>}
         />
       )}>
       <View style={styles.container}>

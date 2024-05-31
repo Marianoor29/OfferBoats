@@ -56,6 +56,7 @@ const Profile = ({ navigation, route }: any) => {
         isEnabled={isEnabled}
         toggleSwitch={() => setIsEnabled(previousState => !previousState)}
         onPressFirstIcon2={() => navigation.navigate(ScreenNames.NOTIFICATION)}
+        onPressFirstIcon1={() => navigation.navigate(ScreenNames.SEARCH)}
         />
       )}
     >

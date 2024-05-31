@@ -43,15 +43,16 @@ const ReviewBox = ({
         <View style={styles.container}>
             <View style={styles.userInfoView}>
                 <Image source={{ uri: reviewerImage }} style={styles.UserImage} />
-                <View>
-                    <LargeText size={4}>{reviewerName}</LargeText>
+                <View style={styles.infoView}>
+                    <LargeText size={4} numberOfLines={1}>{reviewerName}</LargeText>
                     <SmallText size={3} color={AppColors.grey}>{reviewDate}</SmallText>
                 </View>
             </View>
             <View style={styles.Ratingcontainer}>
                 <View style={styles.starsContainer}>{renderStars()}</View>
             </View>
-            <SmallText numberOfLines={6}>{reviewText}</SmallText>
+            <SmallText numberOfLines={6}>{reviewText}</SmallText> 
+
         </View>
     )
 }

@@ -42,7 +42,7 @@ const CreditCard = ({
           <Text style={[styles.nameText]}>{CardHolderName}</Text>
           {selected ?
           <TouchableOpacity activeOpacity={0.7} onPress={onPressDelete}>
-              <FontAwesome6 name='trash-can' size={width(6)} color={AppColors.white} />
+              <FontAwesome6 name='trash-can' size={width(6)} color={AppColors.yellow} />
           </TouchableOpacity> : null }
         </View>
       </TouchableOpacity>

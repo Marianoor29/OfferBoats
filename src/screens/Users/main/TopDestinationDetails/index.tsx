@@ -32,7 +32,7 @@ const TopDestinationDetails = ({ navigation, route }: any) => {
       headerUnScrollable={() => (
         <SimpleHeader 
         onPressFirstIcon={() => navigation.goBack()}
-        emptyView={<LargeText size={4.8} textAlign={'center'}>Top destinatios in {TopDestination.title}</LargeText>}
+        emptyView={<LargeText size={4} textAlign={'center'}>Top destinatios in {TopDestination.title}</LargeText>}
         />
       )}>
       <View style={styles.container}>

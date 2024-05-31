@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: AppColors.white,
         width: width(70),
-        height:height(30),
+        // height:height(30),
         marginHorizontal: width(2),
         marginBottom: height(1.4),
         borderRadius: width(2),
@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center'
+    },
+    infoView:{
+        width:width(45),
+        marginLeft:width(5)
     },
     Ratingcontainer:{
         justifyContent: 'center',

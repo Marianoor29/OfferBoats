@@ -39,6 +39,7 @@ const Offers = ({ navigation }: any) => {
             <Octicons name="filter" size={width(5)} color={AppColors.yellow} />
           }
           onPressFirstIcon2={() => navigation.navigate(ScreenNames.NOTIFICATION)}
+          onPressFirstIcon1={() => navigation.navigate(ScreenNames.SEARCH)}
         />
       )}>
       <View style={styles.container}>

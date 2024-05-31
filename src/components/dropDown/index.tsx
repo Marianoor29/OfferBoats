@@ -22,7 +22,7 @@ const DropDown = ({
     detail
 }: textProps) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, ]}>
             <View style={styles.innerContainer}>
                 <LargeText size={4.6} textStyles={CommonStyles.marginBottom_2}>{title}</LargeText>
                 <Pressable onPress={onPress}>

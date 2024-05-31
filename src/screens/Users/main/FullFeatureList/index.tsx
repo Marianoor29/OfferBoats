@@ -20,7 +20,7 @@ const FullFeatureList = ({ navigation, route }: any) => {
       headerUnScrollable={() => (
         <SimpleHeader 
         onPressFirstIcon={() => navigation.goBack()}
-        emptyView={<LargeText size={4.8} >Features</LargeText>}
+        emptyView={<LargeText size={4} >Features</LargeText>}
         />
       )}>
       <View style={styles.container}>

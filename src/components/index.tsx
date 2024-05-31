@@ -24,4 +24,7 @@ export { default as TopDestinationCard } from './topDestinationCard';
 export { default as OfferDetailCard } from './offerDetailCard';
 export { default as DropDown } from './dropDown';
 export { default as ReviewBox } from './reviewBox';
+export { default as ReviewDetailCard } from './reviewDetailCard';
+export { default as DateSelector } from './dateSelector';
+export { default as TimeSelector } from './timeSelector';
 export {LargeText,MediumText,SmallText,UnderLineText} from './text'
