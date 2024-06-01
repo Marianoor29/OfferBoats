@@ -8,6 +8,7 @@ type OfferDetailCardProps = {
     members?: number,
     duration?: number,
     rating?: number,
+    container?: object,
 }
 
 const OfferDetailCard = ({
@@ -15,25 +16,29 @@ const OfferDetailCard = ({
     members,
     duration,
     rating,
+    container
 }: OfferDetailCardProps) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container,container]}>
             <View style={styles.rowStyles}>
-              <MediumText size={3.4}>Price</MediumText>
-              <MediumText textStyles={styles.smallText}>${price}</MediumText>
-              </View>
-              <View style={styles.rowStyles}>
-              <MediumText size={3.4}>Members</MediumText>
-            <MediumText textStyles={styles.smallText}>{members} members</MediumText>
+                <MediumText size={3.4}>Price</MediumText>
+                <MediumText textStyles={styles.smallText}>${price}</MediumText>
             </View>
             <View style={styles.rowStyles}>
-            <MediumText size={3.4}>Duration</MediumText>
-            <MediumText textStyles={styles.smallText}>{duration} hours</MediumText>
+                <MediumText size={3.4}>Members</MediumText>
+                <MediumText textStyles={styles.smallText}>{members} members</MediumText>
             </View>
             <View style={styles.rowStyles}>
-            <MediumText size={3.4}>Owners Rating</MediumText>
-            <MediumText textStyles={styles.smallText}>Rating: {rating} </MediumText>
+                <MediumText size={3.4}>Duration</MediumText>
+                <MediumText textStyles={styles.smallText}>{duration} hours</MediumText>
             </View>
+            {rating && (
+                <View style={styles.rowStyles}>
+                    <MediumText size={3.4}>Owners Rating</MediumText>
+                    <MediumText textStyles={styles.smallText}>Rating: {rating} </MediumText>
+                </View>
+            )}
+
         </View>
     )
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Image, Pressable, Text } from 'react-native';
 import styles from './styles';
 import Button from '../button';
-import { Rating, AirbnbRating } from 'react-native-ratings';
 import { LargeText, SmallText } from '../text';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { width } from '../../utils/Dimension';
@@ -34,10 +33,6 @@ const profileInfo = ({
   onPress = () => null,
 
 }: profileInfoProps) => {
-
-  // const handleRatingCompleted = (rating: number) => {
-  //   console.log("Rating is: " + rating);
-  // };
   const fullStars = Math.floor(rating);
   const halfStar = rating - fullStars >= 0.5 ? true : false;
   const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
@@ -89,15 +84,6 @@ const profileInfo = ({
       <View style={styles.starsContainer}>{renderStars()}</View>
       <SmallText textStyles={styles.ratingText}>Ratings: {rating}</SmallText>
     </View>
-          {/* <View style={styles.Ratingcontainer}>
-      <Rating
-        type="star"
-        ratingCount={5}
-        imageSize={15}
-        onFinishRating={handleRatingCompleted}
-        style={{ paddingVertical: 10 }}
-      />
-    </View> */}
    
           </View>
       </View>

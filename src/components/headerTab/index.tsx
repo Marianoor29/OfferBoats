@@ -3,6 +3,7 @@ import { TouchableOpacity, View, Text, StyleProp, ViewStyle, } from "react-nativ
 
 import styles from "./styles";
 import AppColors from "../../utils/AppColors";
+import { LargeText } from "../text";
 
 type Tab = {
   name: string;
@@ -38,8 +39,9 @@ const HeaderTab = ({
             },
           ]}
         >
-          <Text
-            style={[
+          <LargeText
+          size={3.4}
+            textStyles={[
               styles.BtnText,
               {
                 color:
@@ -50,7 +52,7 @@ const HeaderTab = ({
             ]}
           >
             {item.name}
-          </Text>
+          </LargeText>
         </TouchableOpacity>
       ))}
     </View>

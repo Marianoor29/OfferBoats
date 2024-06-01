@@ -1,7 +1,7 @@
 export enum ORDER_STATUSES {
-  UPCOMING = "upcoming",
-  CANCELLED = "cancelled",
-  COMPLETED = "completed",
-  CONFIRMED = "confirmed",
-  PENDING = "pending",
+  UPCOMING = "Upcoming",
+  CANCELLED = "Cancelled",
+  COMPLETED = "Completed",
+  CONFIRMED = "Confirmed",
+  PENDING = "Pending",
 }

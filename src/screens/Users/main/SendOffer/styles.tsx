@@ -13,7 +13,7 @@ export default StyleSheet.create({
   durationView:{
     width:width(85),
     paddingHorizontal:width(3),
-    // paddingBottom:height(0.9),
+    marginBottom:height(2.4),
     borderWidth: 1,
     borderRadius: width(2),
     borderColor: AppColors.grey,
@@ -39,5 +39,13 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: width(2),
     borderColor: AppColors.grey,
-  }
+  },
+  footerBtnStyle:{
+    alignSelf:'center',
+    marginBottom:height(2)
+  },
+  animatedImageStyle: {
+    height: width(20),
+    width:width(20),
+  },
 });

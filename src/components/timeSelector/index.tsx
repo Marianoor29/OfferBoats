@@ -10,10 +10,10 @@ interface TimePickerModalProps {
   onTimeSelected: (time: string) => void;
 }
 
-const TimeSelector: React.FC<TimePickerModalProps> = ({
+const TimeSelector = ({
   initialTime = null,
   onTimeSelected,
-}) => {
+}:TimePickerModalProps) => {
   const [isTimePickerVisible, setTimePickerVisible] = useState(false);
   const [selectedTime, setSelectedTime] = useState<Date | null>(
     initialTime ? new Date(initialTime) : null

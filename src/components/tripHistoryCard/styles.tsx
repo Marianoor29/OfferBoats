@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderRadius: width(3),
     marginVertical: height(0.5),
     backgroundColor:AppColors.white,
-    shadowColor: AppColors.grey,
+    shadowColor: AppColors.black,
     shadowOffset: {
       width: 0,
       height: 1,
@@ -90,17 +90,24 @@ const styles = StyleSheet.create({
     color: AppColors.white,
   },
   btnTextCancel: {
-    color: AppColors.greenyellow,
+    color: AppColors.white,
+    fontSize:width(3.6)
   },
   CancelContainer: {
-    width: width(82),
-    backgroundColor: AppColors.chocolate,
-    paddingVertical: height(1.3),
+    width: width(40),
+    backgroundColor: AppColors.red,
+    paddingVertical: height(0.7),
   },
-  progressContainer: {
-    width: width(82),
-    paddingVertical: height(1.3),
-    backgroundColor: AppColors.blue,
+  DetailsBtn: {
+    width: width(40),
+    backgroundColor: AppColors.yellow,
+    paddingVertical: height(0.7),
+  },
+  DetailsBtnContainer: {
+    width: width(80),
+    backgroundColor: AppColors.yellow,
+    paddingVertical: height(0.7),
+    alignSelf:'center'
   },
   priceContainer: {
     width: width(15),

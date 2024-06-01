@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: width(3),
     elevation: 2,
-    paddingVertical:height(1.5)
+    paddingVertical:height(1.5),
+    alignSelf:'center'
     },
     rowStyles:{
         width:width(70),

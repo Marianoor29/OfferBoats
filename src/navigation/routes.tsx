@@ -1,6 +1,7 @@
 const ScreenNames = {
   HOME: 'Home',
   TRIP: 'Trip',
+  TRIPDETAILS: 'TripDetails',
   LOGIN: 'Login',
   SIGNUP: 'SignUp',
   FORGOTPASSWORD: 'ForgotPassword',
@@ -19,6 +20,7 @@ const ScreenNames = {
   SEARCH: 'Search',
   REVIEWS: 'Reviews',
   SENDOFFER: 'SendOffer',
+  LEAVERATING: 'LeaveRating',
 };
 
 export default ScreenNames;

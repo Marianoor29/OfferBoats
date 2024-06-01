@@ -43,8 +43,8 @@ const Profile = ({ navigation, route }: any) => {
     },
     {
       key:3,
-      source:<MaterialIcons name='settings' size={width(5)} color={AppColors.black}/>,
-      screenName:'Settings',
+      source:<MaterialIcons name='edit-notifications' size={width(6)} color={AppColors.black}/>,
+      screenName:'Notification Settings',
       onPress: () =>navigation.navigate(ScreenNames.SETTING)
     },
   ]

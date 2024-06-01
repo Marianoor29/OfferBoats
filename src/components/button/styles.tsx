@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderRadius: width(2),
   },
   text: {
-    fontSize: width(5),
+    fontSize: width(4),
     color: AppColors.white,
     fontWeight: 'bold',
   },

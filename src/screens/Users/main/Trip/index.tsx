@@ -20,10 +20,10 @@ import styles from './styles';
 const Trip = ({ navigation }: any) => {
   const tabBarHeight = useBottomTabBarHeight();
   const tabs = [
-    { id: 1, name: "Current" },
-    { id: 2, name: "Previous" },
+    { id: 1, name: "Current Trips" },
+    { id: 2, name: "Previous Trips" },
   ];
-  const [selectedTopTab, setSelectedTopTab] = useState("Current");
+  const [selectedTopTab, setSelectedTopTab] = useState("Current Trips");
   const [currentTabArray, setCurrenttabArray] = useState(
     orderData.filter(
       (item) =>
@@ -33,7 +33,7 @@ const Trip = ({ navigation }: any) => {
   );
   const onPressTab = (state) => {
     setSelectedTopTab(state);
-    if (state === "Current") {
+    if (state === "Current Trips") {
       setCurrenttabArray(
         orderData.filter(
           (item) =>
@@ -51,17 +51,19 @@ const Trip = ({ navigation }: any) => {
       );
     }
   };
+  const onPressDecline = () =>{}
   const renderItem = ({ item }) => {
     return (
       <TripOrders
         date={item.date}
-        serviceName={item.serviceName}
-        serviceDesc={item.serviceDesc}
+        ownerName={item.ownerName}
         address={item.address}
         price={item.price}
-        title={item.title}
+        tripTitle={item.tripTitle}
         image={item.image}
         statusView={item.status}
+        onPressDecline={onPressDecline}
+        onPressDetails={() => navigation.navigate(ScreenNames.TRIPDETAILS,{trip : item})}
       />
     );
   };

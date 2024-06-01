@@ -12,16 +12,16 @@ import { width } from "../../utils/Dimension";
 
 type TripOrdersProps = {
   image: string;
-  serviceName?: string;
+  ownerName?: string;
   serviceDesc?: string;
   address?: string;
-  title?: string;
+  tripTitle?: string;
   date?: string;
   onPressDecline?: () => void;
   containerStyles?: StyleProp<ViewStyle>;
   statusView?: string;
   price?: string | number;
-  onPressProgress?: () => void;
+  onPressDetails?: () => void;
   onPress?: () => void;
 };
 
@@ -49,15 +49,15 @@ const AddressRow = ({ icon, text, containerStyle }: AddressRowProps) => {
 
 const TripOrders = ({
   image,
-  serviceName,
+  ownerName,
   address,
-  title,
+  tripTitle,
   date,
   onPressDecline,
+  onPressDetails,
   containerStyles,
   statusView = "",
   price,
-  onPressProgress = () => null,
   onPress
 }: TripOrdersProps) => {
   const handleBadgeBg =
@@ -92,14 +92,14 @@ const TripOrders = ({
         <View style={styles.innerView}>
           <Image source={{uri:image}} style={styles.image} resizeMode={"cover"} />
           <View >
-            {serviceName && (
+            {ownerName && (
               <MediumText
                 numberOfLines={1}
                 size={4}
                 color={AppColors.black}
                 textStyles={styles.service}
               >
-                {serviceName}
+                {ownerName}
               </MediumText>
             )}
           </View>
@@ -123,11 +123,11 @@ const TripOrders = ({
           </MediumText>
         )}
       </View>
-      {title && (
+      {tripTitle && (
         <AddressRow
           containerStyle={CommonStyles.marginTop_2}
           icon={<Ionicons name="trail-sign-sharp" size={width(5)} color={AppColors.black} />}
-          text={title}
+          text={tripTitle}
         />
       )}
            {address && (
@@ -155,21 +155,28 @@ const TripOrders = ({
           </MediumText>
         )}
       </View>
+      <View style={styles.btnView}>
       {statusView !== ORDER_STATUSES.COMPLETED && statusView !== ORDER_STATUSES.CANCELLED && (
         <>
           {onPressDecline && (
-            <View style={styles.btnView}>
               <Button
                 text={"Cancel"}
                 buttonStyle={styles.CancelContainer}
                 textStyle={styles.btnTextCancel}
                 onPress={onPressDecline}
               />
-            </View>
           )}
 
         </>
       )}
+       <Button
+                text={"Check Details"}
+                buttonStyle={[styles.DetailsBtn, 
+                  statusView !== ORDER_STATUSES.CONFIRMED && statusView !== ORDER_STATUSES.PENDING && styles.DetailsBtnContainer]}
+                textStyle={styles.btnTextCancel}
+                onPress={onPressDetails}
+              />
+          </View>
     </TouchableOpacity>
   );
 };

@@ -14,3 +14,5 @@ export { default as Search } from './Search';
 export { default as Setting } from './Setting';
 export { default as Reviews } from './Reviews';
 export { default as SendOffer } from './SendOffer';
+export { default as TripDetails } from './TripDetails';
+export { default as LeaveRating } from './LeaveRating';
